@@ -93,9 +93,46 @@
 </div>
 
 <div class="section" id="mysql">
-    <h2>MySQL Projects</h2>
-    <p>Download MySQL script:</p>
-    <a class="btn" href="MySqlAssignment.sql" download>Download SQL File</a>
+<h2>MySQL Projects</h2>
+<p style="font-size:16px;color:#444;line-height:1.6;">
+Below is a professionally documented MySQL project that demonstrates skills in joins,
+window functions, constraints, stored procedures, views, triggers, and advanced SQL queries.
+You can download the full SQL file and review each solution.
+</p>
+
+
+<h3 style="margin-top:20px;color:#222;">📥 Download MySQL Assignment</h3>
+<a class="btn" href="MySqlAssignment.sql" download>
+Download Complete MySQL Project (.sql)
+</a>
+
+
+<h3 style="margin-top:30px;color:#222;">📌 Project Highlights</h3>
+<ul style="font-size:15px; color:#444; line-height:1.8;">
+<li>✔ SQL Queries using <strong>WHERE, LIKE, DISTINCT</strong></li>
+<li>✔ <strong>CASE</strong> based customer segmentation</li>
+<li>✔ <strong>Group By + Having</strong> with date functions</li>
+<li>✔ Creating databases, tables, primary/foreign keys</li>
+<li>✔ Writing <strong>JOIN</strong> queries for business insights</li>
+<li>✔ Implementing <strong>Self Joins</strong></li>
+<li>✔ <strong>DDL</strong> operations (CREATE, ALTER, RENAME)</li>
+<li>✔ Creating <strong>Views</strong> and <strong>Stored Procedures</strong></li>
+<li>✔ <strong>Triggers</strong> for data validation</li>
+<li>✔ Window Functions: <strong>RANK, DENSE_RANK, LAG, LEAD</strong></li>
+</ul>
+
+
+<h3 style="margin-top:30px;color:#222;">📄 Sample Code Snippet</h3>
+<pre style="background:#f0f0f0;padding:15px;border-radius:8px;overflow-x:auto;font-size:14px;">
+SELECT productCode,
+SUM(quantityOrdered) AS total_quantity
+FROM orderdetails
+GROUP BY productCode
+ORDER BY total_quantity DESC
+LIMIT 10;
+</pre>
+
+
 </div>
 
 
