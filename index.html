@@ -61,7 +61,30 @@
             text-decoration: none;
             margin-top: 10px;
         }
-    </style>
+    
+/* ===================== PROFESSIONAL HOVER ANIMATION FOR PROJECT CARDS ===================== */
+.project-card {
+    background:#fafafa;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+    transition: all 0.35s ease-in-out;
+}
+.project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:0 12px 28px rgba(0,0,0,0.18);
+}
+
+/* Enable hover animation on all embedded sections */
+.section > div {
+    transition: all 0.35s ease;
+    border-radius: 14px;
+}
+.section > div:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.18);
+}
+</style>
 </head>
 <body>
 
