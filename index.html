@@ -85,6 +85,54 @@
     box-shadow: 0 12px 26px rgba(0,0,0,0.18);
 }
 </style>
+<style>
+/* ===================== ADVANCED PROFESSIONAL UPGRADES ===================== */
+
+/* Smooth fade-in on scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Premium animated buttons */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease, transform 0.25s ease;
+}
+.btn:hover {
+    background:#005fcc;
+    transform: translateY(-3px);
+}
+.btn::after {
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.3);
+    transform:skewX(-20deg);
+    transition: left 0.5s ease;
+}
+.btn:hover::after {
+    left:100%;
+}
+
+/* Soft section fade + spacing improvement */
+.section {
+    animation: softfade 0.8s ease;
+}
+@keyframes softfade {
+    from {opacity:0; transform: translateY(15px);} to {opacity:1; transform:translateY(0);}
+}
+
+</style>
 </head>
 <body>
 
@@ -334,5 +382,20 @@ DELIMITER ;
     <p>© 2025 Chirugow | Data Portfolio</p>
 </footer>
 
+<script>
+// ===================== SCROLL FADE-IN ANIMATIONS =====================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.section, .project-card, iframe').forEach((el) => {
+  el.classList.add('fade-in');
+  observer.observe(el);
+});
+</script>
 </body>
 </html>
