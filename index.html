@@ -210,45 +210,63 @@ file is shared using the <strong>Anyone with the link</strong> access level.
 
 <div class="section" id="mysql">
 <h2>MySQL Projects</h2>
+
+
 <p style="font-size:16px;color:#444;line-height:1.6;">
-Below is a professionally documented MySQL project that demonstrates skills in joins,
-window functions, constraints, stored procedures, views, triggers, and advanced SQL queries.
-You can download the full SQL file and review each solution.
+A complete MySQL project covering database creation, table design, data manipulation,
+joins, subqueries, views, stored procedures, and SQL-based analytics. This project
+demonstrates strong SQL fundamentals and practical business problem-solving.
 </p>
 
 
-<h3 style="margin-top:20px;color:#222;">📥 Download MySQL Assignment</h3>
-<a class="btn" href="MySqlAssignment.sql" download>
-Download Complete MySQL Project (.sql)
-</a>
+<div style="margin-top:25px; padding:20px; background:#fafafa; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+<h3 style="color:#222; margin-bottom:12px;">🗄️ MySQL Assignment</h3>
 
 
-<h3 style="margin-top:30px;color:#222;">📌 Project Highlights</h3>
-<ul style="font-size:15px; color:#444; line-height:1.8;">
-<li>✔ SQL Queries using <strong>WHERE, LIKE, DISTINCT</strong></li>
-<li>✔ <strong>CASE</strong> based customer segmentation</li>
-<li>✔ <strong>Group By + Having</strong> with date functions</li>
-<li>✔ Creating databases, tables, primary/foreign keys</li>
-<li>✔ Writing <strong>JOIN</strong> queries for business insights</li>
-<li>✔ Implementing <strong>Self Joins</strong></li>
-<li>✔ <strong>DDL</strong> operations (CREATE, ALTER, RENAME)</li>
-<li>✔ Creating <strong>Views</strong> and <strong>Stored Procedures</strong></li>
-<li>✔ <strong>Triggers</strong> for data validation</li>
-<li>✔ Window Functions: <strong>RANK, DENSE_RANK, LAG, LEAD</strong></li>
-</ul>
+<p style="font-size:15px;color:#555;line-height:1.6;">
+Below is the full SQL script containing table creation statements, insert commands,
+constraints, queries, joins, views, and stored procedures built as part of the
+MySQL assignment. This script is compatible with MySQL Workbench and phpMyAdmin.
+</p>
 
 
-<h3 style="margin-top:30px;color:#222;">📄 Sample Code Snippet</h3>
-<pre style="background:#f0f0f0;padding:15px;border-radius:8px;overflow-x:auto;font-size:14px;">
-SELECT productCode,
-SUM(quantityOrdered) AS total_quantity
-FROM orderdetails
-GROUP BY productCode
-ORDER BY total_quantity DESC
-LIMIT 10;
+<!-- Code Preview Box -->
+<pre style="background:#272822;color:#f8f8f2;padding:20px;border-radius:10px;overflow-x:auto;font-size:14px;line-height:1.5;max-height:420px;">
+-- MySQL Assignment Script
+-- (Preview Only — Download full file below)
+
+
+CREATE DATABASE CompanyDB;
+USE CompanyDB;
+
+
+CREATE TABLE Employees (
+EmpID INT PRIMARY KEY,
+EmpName VARCHAR(100),
+EmailAddress VARCHAR(100)
+);
+
+
+DELIMITER $$
+CREATE PROCEDURE InsertEmployee(IN p_id INT, IN p_name VARCHAR(100), IN p_email VARCHAR(100))
+BEGIN
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+BEGIN
+SELECT 'Error occurred';
+END;
+
+
+INSERT INTO Employees VALUES (p_id, p_name, p_email);
+SELECT 'Record inserted successfully';
+END $$
+DELIMITER ;
 </pre>
 
 
+<a class="btn" href="MySqlAssignment.sql" download style="margin-top:14px; display:inline-block;">
+⬇️ Download Full MySQL Script (.sql)
+</a>
+</div>
 </div>
 
 
