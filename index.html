@@ -381,5 +381,17 @@ document.querySelectorAll('.section, .project-card, iframe').forEach((el) => {
   observer.observe(el);
 });
 </script>
+<!-- FLOATING BACK TO TOP BUTTON -->
+<div id="topBtn" onclick="window.scrollTo({top:0, behavior:'smooth'});">⬆</div>
+
+<script>
+// DARK MODE TOGGLE
+function toggleDarkMode(){ document.body.classList.toggle('dark-mode'); }
+
+// SHOW BACK TO TOP BUTTON
+window.addEventListener('scroll',()=>{
+  document.getElementById('topBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+</script>
 </body>
 </html>
