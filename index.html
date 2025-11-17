@@ -47,7 +47,7 @@
     }
     .skill-badge:hover{transform:translateY(-5px)}
 
-    /* Internal Navigation */
+    /* Navigation */
     .main-nav{
       background:#333;padding:12px;text-align:center;margin:20px auto;
       width:90%;max-width:1100px;border-radius:8px
@@ -70,14 +70,12 @@
       box-shadow:0 14px 28px rgba(0,0,0,0.18);
     }
 
-    /* Buttons */
     .btn{
       padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;
       text-decoration:none;font-weight:600;transition:.25s;
     }
     .btn:hover{background:#005fcc;transform:translateY(-3px)}
 
-    /* Back to Top */
     #topBtn{
       display:none;position:fixed;bottom:30px;right:30px;padding:12px 14px;
       background:#0078ff;color:#fff;border-radius:50%;cursor:pointer;
@@ -109,11 +107,10 @@
   </div>
 </div>
 
-
 <!-- HERO SECTION -->
 <header>
   <h1>Chiru Gowda | Data Analyst Portfolio</h1>
-  <p>Power BI • Tableau • Excel • SQL • Data Visualization</p>
+  <p>Power BI • Tableau • Excel • MySQL • Data Visualization</p>
 
   <div class="skill-badges">
     <div class="skill-badge">Power BI</div>
@@ -125,7 +122,6 @@
   </div>
 </header>
 
-
 <!-- INTERNAL NAVIGATION -->
 <nav class="main-nav">
   <a href="#powerbi">Power BI</a>
@@ -134,41 +130,31 @@
   <a href="#mysql">MySQL</a>
 </nav>
 
-
-<!-- POWERBI -->
+<!-- POWER BI -->
 <div class="section" id="powerbi">
   <h2>Power BI Dashboard</h2>
   <div class="project-card">
     <h3>📊 Sales Dashboard</h3>
 
-    <iframe title="Powerbi Assignment" width="100%" height="650"
-      src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMDM2ZDhlOTEtNmQ5Zi00YzUzLWFkODktYTEzYjViZThjMjk1IiwidCI6IjdjMjQyMjEwLTViNWUtNDIyOS04Y2ZlLTY0NTM2YzUyNTJhZiJ9"
-      frameborder="0" allowFullScreen="true">
-    </iframe>
+    <iframe title="PowerBI Dashboard"
+      width="100%" height="650" frameborder="0" allowFullScreen="true"
+      src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMDM2ZDhlOTEtNmQ5Zi00YzUzLWFkODktYTEzYjViZThjMjk1IiwidCI6IjdjMjQyMjEwLTViNWUtNDIyOS04Y2ZlLTY0NTM2YzUyNTJhZiJ9"></iframe>
   </div>
 </div>
 
-
-<!-- TABLEAU -->
+<!-- TABLEAU (FULL WIDTH LIKE POWERBI) -->
 <div class="section" id="tableau">
-  <h2>Tableau Visualizations</h2>
+  <h2>Tableau Visualization</h2>
 
   <div class="project-card">
     <h3>📊 Superstore Dashboard</h3>
 
-    <div class='tableauPlaceholder' id='viz1'>
-      <object class='tableauViz' style='display:none;'>
-        <param name='host_url' value='https://public.tableau.com/' />
-        <param name='name' value='TableauAssignmnets1/FinalDashboard' />
-        <param name='tabs' value='no' />
-        <param name='toolbar' value='yes' />
-      </object>
-    </div>
-
-    <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
+    <iframe
+      src="https://public.tableau.com/views/TableauAssignmnets1/FinalDashboard?:showVizHome=no&:embed=true"
+      style="width:100%; height:750px; border:0; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.08);">
+    </iframe>
   </div>
 </div>
-
 
 <!-- EXCEL -->
 <div class="section" id="excel">
@@ -186,26 +172,12 @@
   </div>
 </div>
 
-
 <!-- MYSQL -->
 <div class="section" id="mysql">
   <h2>MySQL Assignment</h2>
 
   <div class="project-card">
     <h3>🗄️ Complete SQL Assignment — 13 Topics Covered</h3>
-
-    <h4>📌 Topics Implemented</h4>
-    <ul>
-      <li>SELECT, DISTINCT, LIKE, WHERE</li>
-      <li>CASE segmentation</li>
-      <li>Aggregations & HAVING</li>
-      <li>JOINS & SELF JOIN</li>
-      <li>DDL — CREATE, ALTER, RENAME</li>
-      <li>Views</li>
-      <li>Stored Procedures</li>
-      <li>Window Functions</li>
-      <li>Triggers</li>
-    </ul>
 
     <pre style="background:#1e1e1e;color:#fff;padding:20px;border-radius:10px;overflow:auto">
 -- Preview of your MySQL Assignment
@@ -226,9 +198,8 @@ END;
   </div>
 </div>
 
-
-<!-- CONTACT + RESUME -->
-<div class="section" id="contact">
+<!-- CONTACT -->
+<div class="section">
   <h2>Contact & Resume</h2>
 
   <div class="project-card">
@@ -238,18 +209,15 @@ END;
   </div>
 </div>
 
-
-<!-- BACK TO TOP -->
+<!-- BACK TO TOP BUTTON -->
 <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  // Show back-to-top button
   window.onscroll = function(){
     document.getElementById("topBtn").style.display =
       document.documentElement.scrollTop > 200 ? "block" : "none";
   };
 </script>
-
 
 <footer>
   <p>© 2025 Chiru Gowda | Data Portfolio</p>
