@@ -27,6 +27,7 @@
     }
     a{color:var(--accent)}
 
+    /* Top nav */
     .top-nav{
       width:100%;background:var(--nav);padding:12px 22px;position:sticky;top:0;z-index:1000;
       display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)
@@ -36,8 +37,10 @@
     .nav-right img{width:28px;transition:transform .22s}
     .nav-right img:hover{transform:scale(1.15)}
 
+    /* theme toggle */
     #themeToggle{background:none;border:0;font-size:20px;cursor:pointer;margin-right:6px}
 
+    /* header */
     header{
       background:linear-gradient(135deg,#0078ff,#00b1ff);
       padding:56px 18px;text-align:center;color:#fff;border-bottom-left-radius:18px;border-bottom-right-radius:18px;
@@ -50,11 +53,14 @@
     .skill-badge{background:#fff;color:#111;padding:8px 14px;border-radius:20px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,0.08);transition:.2s}
     .skill-badge:hover{transform:translateY(-5px)}
 
+    /* main nav */
     .main-nav{background:#222;text-align:center;padding:12px;border-radius:10px;margin:20px auto;width:92%;max-width:1100px}
     .main-nav a{color:#fff;margin:0 14px;text-decoration:none;font-weight:700}
 
+    /* sections */
     .section{padding:30px;background:var(--card);margin:20px auto;border-radius:12px;max-width:1100px;width:92%;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:.3s}
 
+    /* cards */
     .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:18px}
 
     .project-card{
@@ -82,6 +88,7 @@
 </head>
 <body>
 
+  <!-- TOP NAV -->
   <div class="top-nav">
     <div class="brand">Chiru Gowda | Portfolio</div>
     <div class="nav-right">
@@ -91,6 +98,7 @@
     </div>
   </div>
 
+  <!-- HERO -->
   <header>
     <h1>Chiru Gowda — Data Analyst</h1>
     <p>Power BI • Tableau • Excel • MySQL • Visualization</p>
@@ -105,6 +113,7 @@
     </div>
   </header>
 
+  <!-- MAIN NAV -->
   <nav class="main-nav">
     <a href="#powerbi">Power BI</a>
     <a href="#tableau">Tableau</a>
@@ -113,6 +122,7 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <!-- POWER BI -->
   <section class="section" id="powerbi">
     <h2>Power BI</h2>
 
@@ -128,6 +138,7 @@
     </div>
   </section>
 
+  <!-- TABLEAU -->
   <section class="section" id="tableau">
     <h2>Tableau</h2>
 
@@ -142,6 +153,7 @@
     </div>
   </section>
 
+  <!-- EXCEL -->
   <section class="section" id="excel">
     <h2>Excel</h2>
 
@@ -151,4 +163,79 @@
         <p>Excel dashboard embedded from OneDrive.</p>
 
         <iframe
-          src="https://1
+          src="https://1drv.ms/x/c/E60B13B193A9C309/IQQ1pQEMe-NmS6pu2-TpkFdPAegl0y4YH7peF-INAc7u548?em=2&wdAllowInteractivity=True&wdHideGridlines=True&wdHideHeaders=True"
+          style="width:100%;height:720px;border:0;border-radius:10px;"></iframe>
+
+        <a class="btn" href="Sales report dashboard.xlsx" download>⬇️ Download Excel Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MYSQL -->
+  <section class="section" id="mysql">
+    <h2>MySQL</h2>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>🗄️ Full SQL Assignment</h3>
+
+        <details>
+          <summary>▶ Show SQL Preview</summary>
+          <pre class="code">
+-- Example SQL
+SELECT * FROM employees;
+          </pre>
+        </details>
+
+        <a class="btn" href="MySqlAssignment.sql" download>⬇️ Download SQL Assignment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+
+    <div class="project-card">
+      <p><strong>Email:</strong> <a href="mailto:chiranthgowda50@gmail.com">chiranthgowda50@gmail.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chiranthkj" target="_blank">linkedin.com/in/chiranthkj</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Chirugow" target="_blank">github.com/Chirugow</a></p>
+
+      <a class="btn" href="chiranthKJresume.docx" target="_blank">📄 View / Download Resume </a>
+    </div>
+  </section>
+
+  <!-- BACK TO TOP -->
+  <button id="topBtn">↑</button>
+
+  <footer>
+    © 2025 Chiru Gowda — Data Portfolio
+  </footer>
+
+  <script>
+    // theme toggle
+    document.getElementById("themeToggle").onclick = () => {
+      document.body.classList.toggle("dark-mode");
+      themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    };
+
+    // reveal animation
+    const cards = document.querySelectorAll(".project-card");
+    const revealCards = () => {
+      cards.forEach(card => {
+        if(card.getBoundingClientRect().top < window.innerHeight - 120){
+          card.classList.add("reveal");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealCards);
+    revealCards();
+
+    // back to top
+    const topBtn=document.getElementById("topBtn");
+    window.addEventListener("scroll",()=>{topBtn.style.display=window.scrollY>300?"block":"none"});
+    topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+  </script>
+
+</body>
+</html>
