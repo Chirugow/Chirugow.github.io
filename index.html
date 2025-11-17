@@ -3,225 +3,286 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chiranth K J | Data Portfolio</title>
+  <title>Chiru Gowda | Data Portfolio</title>
 
   <style>
-    :root {
-      --bg: #f4f4f4;
-      --text: #111;
-      --card: #ffffff;
-      --nav: #ffffff;
-      --accent: #0078ff;
+    :root{
+      --bg:#f4f4f4;
+      --text:#111;
+      --card:#ffffff;
+      --nav:#ffffff;
+      --accent:#0078ff;
     }
-    body{margin:0;padding:0;font-family:Arial;background:var(--bg);color:var(--text);transition:.3s}
+    body.dark-mode{
+      --bg:#0f0f0f;
+      --text:#f7f7f7;
+      --card:#171717;
+      --nav:#111;
+      --accent:#4da3ff;
+    }
+
+    body{
+      margin:0;padding:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg);color:var(--text);transition:background .3s,color .3s;
+    }
     a{color:var(--accent)}
 
-    /* Top Navigation */
+    /* Top nav */
     .top-nav{
-      width:100%;background:var(--nav);padding:14px 28px;position:sticky;top:0;
-      z-index:1000;display:flex;justify-content:space-between;align-items:center;
-      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      width:100%;background:var(--nav);padding:12px 22px;position:sticky;top:0;z-index:1000;
+      display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)
     }
-
-    .brand{font-size:20px;font-weight:700;color:var(--text)}
-
-    .nav-right{display:flex;gap:16px;align-items:center}
-    .nav-right img{width:28px;transition:.25s}
+    .brand{font-weight:800;font-size:20px}
+    .nav-right{display:flex;align-items:center;gap:12px}
+    .nav-right img{width:28px;transition:transform .22s,filter .22s}
     .nav-right img:hover{transform:scale(1.15)}
 
-    /* Hero Section */
+    /* theme toggle */
+    #themeToggle{background:none;border:0;font-size:20px;cursor:pointer;margin-right:6px}
+
+    /* header */
     header{
       background:linear-gradient(135deg,#0078ff,#00b1ff);
-      padding:60px 20px;text-align:center;color:#fff;
-      border-bottom-left-radius:20px;border-bottom-right-radius:20px;
-      box-shadow:0 4px 18px rgba(0,0,0,0.2)
+      padding:56px 18px;text-align:center;color:#fff;border-bottom-left-radius:18px;border-bottom-right-radius:18px;
+      box-shadow:0 6px 22px rgba(0,0,0,0.14)
     }
-    header h1{margin:0;font-size:38px}
-    header p{margin:6px 0 0;font-size:18px}
+    header h1{margin:0;font-size:36px;letter-spacing:0.2px}
+    header p{margin:8px 0 0;font-size:16px;opacity:.95}
 
-    /* Skill Badges */
-    .skill-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
-    .skill-badge{
-      background:#fff;color:#111;padding:8px 14px;font-weight:bold;
-      border-radius:20px;box-shadow:0 4px 14px rgba(0,0,0,.1);transition:.25s;
-    }
-    .skill-badge:hover{transform:translateY(-5px)}
+    .skill-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+    .skill-badge{background:#fff;color:#111;padding:8px 14px;border-radius:20px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,0.08);transition:transform .2s}
+    .skill-badge:hover{transform:translateY(-6px)}
 
-    /* Navigation */
-    .main-nav{
-      background:#333;padding:12px;text-align:center;margin:20px auto;
-      width:90%;max-width:1100px;border-radius:8px
-    }
-    .main-nav a{color:#fff;margin:0 18px;font-size:16px;text-decoration:none}
+    /* main nav */
+    .main-nav{background:#222;text-align:center;padding:12px;border-radius:10px;margin:20px auto;width:92%;max-width:1100px}
+    .main-nav a{color:#fff;margin:0 14px;text-decoration:none;font-weight:700}
 
-    /* Sections */
-    .section{
-      padding:35px;background:#fff;margin:20px auto;width:90%;max-width:1100px;
-      border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08);transition:.3s
-    }
-    .section:hover{transform:translateY(-4px)}
+    /* sections */
+    .section{padding:30px;background:var(--card);margin:20px auto;border-radius:12px;max-width:1100px;width:92%;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:transform .3s}
+    .section h2{margin:0 0 8px 0}
+
+    /* project card grid */
+    .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:18px}
 
     .project-card{
-      padding:22px;background:#fff;border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08);transition:.3s;margin-top:20px
+      background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,0.08);
+      transform:translateY(30px);opacity:0;transition:all 0.7s cubic-bezier(.2,.9,.2,1);
     }
-    .project-card:hover{
-      transform:translateY(-5px) scale(1.01);
-      box-shadow:0 14px 28px rgba(0,0,0,0.18);
-    }
+    .project-card.reveal{transform:translateY(0);opacity:1}
+    .project-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 20px 40px rgba(0,0,0,0.18);}
 
-    .btn{
-      padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;
-      text-decoration:none;font-weight:600;transition:.25s;
+    pre.code{
+      background:#0f1720;color:#e6eef8;padding:14px;border-radius:10px;overflow:auto;font-size:13px;line-height:1.6;
     }
-    .btn:hover{background:#005fcc;transform:translateY(-3px)}
+    .btn{display:inline-block;padding:10px 16px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;transition:transform .18s}
+    .btn:hover{transform:translateY(-3px);background:#005fcc}
 
-    #topBtn{
-      display:none;position:fixed;bottom:30px;right:30px;padding:12px 14px;
-      background:#0078ff;color:#fff;border-radius:50%;cursor:pointer;
-      box-shadow:0 6px 14px rgba(0,0,0,0.25);font-size:18px;
-    }
+    /* details summary */
+    details summary{cursor:pointer;font-weight:700}
+
+    /* footer & back to top */
+    #topBtn{display:none;position:fixed;right:28px;bottom:28px;background:var(--accent);color:#fff;border-radius:50%;padding:12px 14px;font-size:18px;border:0;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,0.25);z-index:1500}
     #topBtn:hover{background:#005fcc}
+    footer{background:#0b0b0b;color:#fff;padding:20px;text-align:center;margin-top:30px;border-radius:10px}
 
-    footer{
-      margin-top:40px;background:#111;color:#fff;text-align:center;padding:22px;
-      border-top-left-radius:12px;border-top-right-radius:12px;
+    @media (max-width:720px){
+      header h1{font-size:26px}
+      .main-nav a{display:inline-block;margin:0 8px}
     }
   </style>
 </head>
-
 <body>
 
-<!-- TOP NAV BAR -->
-<div class="top-nav">
-  <div class="brand">Chiranth K J | Portfolio</div>
-
-  <div class="nav-right">
-    <a href="https://github.com/Chirugow" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
-    </a>
-
-    <a href="https://linkedin.com/in/chiranthkj" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
-    </a>
+  <!-- TOP NAV -->
+  <div class="top-nav">
+    <div class="brand">Chiru Gowda | Portfolio</div>
+    <div class="nav-right">
+      <button id="themeToggle" title="Toggle theme">🌙</button>
+      <a href="https://github.com/Chirugow" target="_blank" title="GitHub"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"></a>
+      <a href="https://www.linkedin.com/in/chiranthkj" target="_blank" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
+    </div>
   </div>
-</div>
 
-<!-- HERO SECTION -->
-<header>
-  <h1>Chiru Gowda | Data Analyst Portfolio</h1>
-  <p>Power BI • Tableau • Excel • MySQL • Data Visualization</p>
+  <!-- HERO -->
+  <header>
+    <h1>Chiru Gowda — Data Analyst</h1>
+    <p>Power BI • Tableau • Excel • MySQL • Data Visualization</p>
 
-  <div class="skill-badges">
-    <div class="skill-badge">Power BI</div>
-    <div class="skill-badge">Tableau</div>
-    <div class="skill-badge">Excel</div>
-    <div class="skill-badge">MySQL</div>
-    <div class="skill-badge">Python</div>
-    <div class="skill-badge">Analytics</div>
-  </div>
-</header>
+    <div class="skill-badges">
+      <div class="skill-badge">Power BI</div>
+      <div class="skill-badge">Tableau</div>
+      <div class="skill-badge">Excel</div>
+      <div class="skill-badge">SQL / MySQL</div>
+      <div class="skill-badge">Python</div>
+      <div class="skill-badge">Analytics</div>
+    </div>
+  </header>
 
-<!-- INTERNAL NAVIGATION -->
-<nav class="main-nav">
-  <a href="#powerbi">Power BI</a>
-  <a href="#tableau">Tableau</a>
-  <a href="#excel">Excel</a>
-  <a href="#mysql">MySQL</a>
-</nav>
+  <!-- MAIN NAV -->
+  <nav class="main-nav">
+    <a href="#powerbi">Power BI</a>
+    <a href="#tableau">Tableau</a>
+    <a href="#excel">Excel</a>
+    <a href="#mysql">MySQL</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<!-- POWER BI -->
-<div class="section" id="powerbi">
-  <h2>Power BI Dashboard</h2>
-  <div class="project-card">
-    <h3>📊 Sales Dashboard</h3>
+  <!-- POWER BI -->
+  <section class="section" id="powerbi">
+    <h2>Power BI</h2>
 
-    <iframe title="PowerBI Dashboard"
-      width="100%" height="650" frameborder="0" allowFullScreen="true"
-      src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMDM2ZDhlOTEtNmQ5Zi00YzUzLWFkODktYTEzYjViZThjMjk1IiwidCI6IjdjMjQyMjEwLTViNWUtNDIyOS04Y2ZlLTY0NTM2YzUyNTJhZiJ9"></iframe>
-  </div>
-</div>
+    <div class="project-grid">
+      <div class="project-card" id="card-powerbi">
+        <h3>📊 Sales Dashboard (Power BI)</h3>
+        <p style="margin-top:6px;color:rgba(0,0,0,0.7);">Interactive report built with DAX measures, model relationships and KPI cards.</p>
 
-<!-- TABLEAU (FULL WIDTH LIKE POWERBI) -->
-<div class="section" id="tableau">
-  <h2>Tableau Visualization</h2>
+        <div style="margin-top:12px;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+          <iframe title="Power BI" width="100%" height="640" frameborder="0" allowFullScreen
+            src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMDM2ZDhlOTEtNmQ5Zi00YzUzLWFkODktYTEzYjViZThjMjk1IiwidCI6IjdjMjQyMjEwLTViNWUtNDIyOS04Y2ZlLTY0NTM2YzUyNTJhZiJ9"></iframe>
+        </div>
 
-  <div class="project-card">
-    <h3>📊 Superstore Dashboard</h3>
+        <a class="btn" href="#contact" style="margin-top:12px;display:inline-block">Contact about this project</a>
+      </div>
+    </div>
+  </section>
 
-    <iframe
-      src="https://public.tableau.com/views/TableauAssignmnets1/FinalDashboard?:showVizHome=no&:embed=true"
-      style="width:100%; height:750px; border:0; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.08);">
-    </iframe>
-  </div>
-</div>
+  <!-- TABLEAU -->
+  <section class="section" id="tableau">
+    <h2>Tableau</h2>
 
-<!-- EXCEL -->
-<div class="section" id="excel">
-  <h2>Excel Dashboard</h2>
+    <div class="project-grid">
+      <div class="project-card" id="card-tableau">
+        <h3>📈 Superstore Dashboard (Tableau)</h3>
+        <p style="margin-top:6px;color:rgba(0,0,0,0.7);">Public Tableau visualization embedded full-width to match Power BI presentation.</p>
 
-  <div class="project-card">
-    <h3>📊 Excel Sales Dashboard</h3>
+        <div style="margin-top:12px;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+          <!-- Full-width Tableau iframe (matches Power BI look) -->
+          <iframe src="https://public.tableau.com/views/TableauAssignmnets1/FinalDashboard?:showVizHome=no&:embed=true"
+                  style="width:100%;height:720px;border:0;"></iframe>
+        </div>
 
-    <iframe
-      src="https://1drv.ms/x/c/E60B13B193A9C309/IQQ1pQEMe-NmS6pu2-TpkFdPAegl0y4YH7peF-INAc7u548?em=2&wdAllowInteractivity=True&wdHideGridlines=True&wdHideHeaders=True"
-      style="width:100%; height:800px; border:0; border-radius:12px;">
-    </iframe>
+        <a class="btn" href="#contact" style="margin-top:12px;display:inline-block">Discuss visualization</a>
+      </div>
+    </div>
+  </section>
 
-    <a class="btn" href="Sales report dashboard.xlsx" download>⬇️ Download Excel Dashboard</a>
-  </div>
-</div>
+  <!-- EXCEL -->
+  <section class="section" id="excel">
+    <h2>Excel</h2>
 
-<!-- MYSQL -->
-<div class="section" id="mysql">
-  <h2>MySQL Assignment</h2>
+    <div class="project-grid">
+      <div class="project-card" id="card-excel">
+        <h3>📋 Sales Performance (Excel)</h3>
+        <p style="margin-top:6px;color:rgba(0,0,0,0.7);">Embedded OneDrive workbook — interactive if sharing permissions allow interactivity.</p>
 
-  <div class="project-card">
-    <h3>🗄️ Complete SQL Assignment — 13 Topics Covered</h3>
+        <div style="margin-top:12px;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+          <iframe
+            src="https://1drv.ms/x/c/E60B13B193A9C309/IQQ1pQEMe-NmS6pu2-TpkFdPAegl0y4YH7peF-INAc7u548?em=2&wdAllowInteractivity=True&wdHideGridlines=True&wdHideHeaders=True"
+            style="width:100%;height:720px;border:0;"></iframe>
+        </div>
 
-    <pre style="background:#1e1e1e;color:#fff;padding:20px;border-radius:10px;overflow:auto">
--- Preview of your MySQL Assignment
-SELECT employeeNumber, firstName, lastName
-FROM employees
-WHERE jobTitle = 'Sales Rep';
+        <a class="btn" href="Sales report dashboard.xlsx" download style="margin-top:12px;display:inline-block">⬇️ Download Excel</a>
+      </div>
+    </div>
+  </section>
 
-CREATE PROCEDURE Get_country_payments(
-  IN input_year INT,
-  IN input_country VARCHAR(50)
-)
+  <!-- MYSQL -->
+  <section class="section" id="mysql">
+    <h2>MySQL</h2>
+
+    <div class="project-grid">
+      <div class="project-card" id="card-mysql">
+        <h3>🗄️ Full SQL Assignment</h3>
+        <p style="margin-top:6px;color:rgba(0,0,0,0.7);">Complete assignment covering queries, joins, views, procedures, triggers and transactions.</p>
+
+        <details style="margin-top:12px">
+          <summary>▶ Show SQL preview</summary>
+          <pre class="code" style="margin-top:12px;max-height:360px;overflow:auto">
+-- Example SQL (preview)
+CREATE DATABASE CompanyDB;
+USE CompanyDB;
+
+CREATE TABLE Employees (
+  EmpID INT PRIMARY KEY,
+  EmpName VARCHAR(100),
+  EmailAddress VARCHAR(120) UNIQUE,
+  CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Stored procedure example
+DELIMITER $$
+CREATE PROCEDURE InsertEmployee(IN p_id INT, IN p_name VARCHAR(100), IN p_email VARCHAR(120))
 BEGIN
-  SELECT * FROM payments;
-END;
-    </pre>
+  DECLARE EXIT HANDLER FOR SQLEXCEPTION
+  BEGIN
+    ROLLBACK;
+    SELECT 'Error occurred while inserting' AS Message;
+  END;
 
-    <a class="btn" href="MySqlAssignment.sql" download>⬇️ Download Full SQL File</a>
-  </div>
-</div>
+  START TRANSACTION;
+  INSERT INTO Employees(EmpID, EmpName, EmailAddress) VALUES (p_id, p_name, p_email);
+  COMMIT;
+  SELECT 'Inserted' AS Message;
+END $$
+DELIMITER ;
+          </pre>
+        </details>
 
-<!-- CONTACT -->
-<div class="section">
-  <h2>Contact & Resume</h2>
+        <a class="btn" href="MySqlAssignment.sql" download style="margin-top:12px;display:inline-block">⬇️ Download SQL</a>
+      </div>
+    </div>
+  </section>
 
-  <div class="project-card">
-    <p><strong>Email:</strong> chiranthgowda50@gmail.com</p>
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <div class="project-card" style="display:flex;flex-direction:column;gap:10px;">
+      <div><strong>Email:</strong> <a href="mailto:chiranthgowda50@gmail.com">chiranthgowda50@gmail.com</a></div>
+      <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chiranthkj" target="_blank">linkedin.com/in/chiranthkj</a></div>
+      <div><strong>GitHub:</strong> <a href="https://github.com/Chirugow" target="_blank">github.com/Chirugow</a></div>
 
-    <a class="btn" href="chiranthKJresume.pdf" target="_blank">📄 View Resume (PDF)</a>
-  </div>
-</div>
+      <div style="margin-top:10px">
+        <a class="btn" href="chiranthKJresume.pdf" target="_blank">📄 View / Download Resume (PDF)</a>
+      </div>
+    </div>
+  </section>
 
-<!-- BACK TO TOP BUTTON -->
-<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <!-- BACK TO TOP -->
+  <button id="topBtn" title="Back to top">↑</button>
 
-<script>
-  window.onscroll = function(){
-    document.getElementById("topBtn").style.display =
-      document.documentElement.scrollTop > 200 ? "block" : "none";
-  };
-</script>
+  <footer>
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="margin-bottom:8px">© 2025 Chiru Gowda</div>
+      <div style="opacity:0.75;font-size:13px">Built with Power BI, Tableau, Excel & MySQL — designed for data-driven insights.</div>
+    </div>
+  </footer>
 
-<footer>
-  <p>© 2025 Chiru Gowda | Data Portfolio</p>
-</footer>
+  <!-- SCRIPTS: theme toggle, reveal, top button -->
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
 
+    // Scroll reveal for project cards
+    const revealOnScroll = () => {
+      document.querySelectorAll('.project-card').forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) card.classList.add('reveal');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('resize', revealOnScroll);
+    revealOnScroll();
+
+    // Back-to-top button
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      topBtn.style.display = (window.scrollY > 300) ? 'block' : 'none';
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
 </body>
 </html>
