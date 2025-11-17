@@ -333,20 +333,49 @@
 
     
 
-    <pre style="background:#1e1e1e; color:#e8e8e8; padding:18px; border-radius:10px; overflow-x:auto; font-size:14px; line-height:1.6; max-height:260px; margin-top:20px;">
--- Simple MySQL Preview
+    <details style="margin-top:20px;">
+  <summary style="cursor:pointer; font-size:16px; font-weight:600; color:#333;">▶ Show More SQL Preview</summary>
+  <pre style="background:#1e1e1e; color:#e8e8e8; padding:18px; border-radius:10px; overflow-x:auto; font-size:14px; line-height:1.6; max-height:420px; margin-top:15px;">
+-- MySQL Assignment (Extended Preview)
+
 CREATE DATABASE CompanyDB;
 USE CompanyDB;
 
 CREATE TABLE Employees (
     EmpID INT PRIMARY KEY,
     EmpName VARCHAR(100),
-    EmailAddress VARCHAR(100)
+    EmailAddress VARCHAR(120) UNIQUE,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO Employees VALUES (1, 'John Doe', 'john@example.com');
+-- Insert sample data
+INSERT INTO Employees VALUES (1, 'John Doe', 'john@example.com', NOW());
+INSERT INTO Employees VALUES (2, 'Emma Smith', 'emma@example.com', NOW());
+
+-- Stored Procedure Example
+DELIMITER $$
+CREATE PROCEDURE InsertEmployee(
+    IN p_id INT,
+    IN p_name VARCHAR(100),
+    IN p_email VARCHAR(120)
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        SELECT 'Error occurred while inserting' AS Message;
+    END;
+
+    INSERT INTO Employees(EmpID, EmpName, EmailAddress)
+    VALUES (p_id, p_name, p_email);
+
+    SELECT 'Record inserted successfully' AS Message;
+END $$
+DELIMITER ;
+
+-- Select all employees
 SELECT * FROM Employees;
-</pre>
+  </pre>
+</details>
 
 <a class="btn" href="MySqlAssignment.sql" download style="margin-top:18px; display:inline-block; font-size:16px; padding:10px 18px;">
       ⬇️ Download Full MySQL Script (.sql)
