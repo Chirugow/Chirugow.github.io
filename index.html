@@ -301,10 +301,48 @@
 <div class="section" id="mysql">
   <h2>MySQL Projects</h2>
 
-  
+  <p style="font-size:16px;color:#444;line-height:1.7; max-width:900px;">
+    This section includes my core MySQL work such as table creation, constraints, stored procedures,
+    joins, and error handling. Below is a preview of the primary SQL script used in my assignment.
+  </p>
 
-  <!-- ADVANCED MYSQL CARD WITH FULL ASSIGNMENT FEATURES -->
+  <div style="margin-top:25px; padding:20px; background:#fafafa; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+    <h3 style="color:#222; margin-bottom:12px;">🗄️ MySQL Assignment Script (Preview)</h3>
+
+    <pre style="background:#1e1e1e; color:#e8e8e8; padding:22px; border-radius:12px; overflow-x:auto; font-size:14px; line-height:1.6; max-height:420px;">
+-- MySQL Assignment
+CREATE DATABASE CompanyDB;
+USE CompanyDB;
+
+CREATE TABLE Employees (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(100),
+    EmailAddress VARCHAR(100)
+);
+
+DELIMITER $$
+CREATE PROCEDURE InsertEmployee(
+    IN p_id INT,
+    IN p_name VARCHAR(100),
+    IN p_email VARCHAR(100)
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        SELECT 'Error occurred' AS Message;
+    END;
+
+    INSERT INTO Employees VALUES (p_id, p_name, p_email);
+    SELECT 'Record inserted successfully' AS Message;
+END $$
+DELIMITER ;
+    </pre>
+
+    <a class="btn" href="MySqlAssignment.sql" download style="margin-top:14px; display:inline-block; font-size:16px; padding:10px 18px;">
+      ⬇️ Download MySQL Assignment (.sql)
+    </a>
   </div>
+</div>
 
   <!-- ADVANCED MYSQL CARD -->
   <div class="project-card" style="padding:30px; border-radius:14px;">
