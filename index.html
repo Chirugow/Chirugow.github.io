@@ -301,72 +301,44 @@
 <div class="section" id="mysql">
   <h2>MySQL Projects</h2>
 
-  <p style="font-size:16px;color:#444;line-height:1.7; max-width:900px;">
-    A comprehensive MySQL project demonstrating professional-level SQL development, including
-    database design, normalization, integrity constraints, stored procedures, error handling,
-    and analytical querying. This section reflects expertise in backend data engineering and
-    enterprise-grade relational database management.
-  </p>
+  <!-- ADVANCED MYSQL SUMMARY CARD -->
+  <div style="background:linear-gradient(135deg,#0078ff,#00c6ff); padding:25px; border-radius:14px; color:white; box-shadow:0 6px 18px rgba(0,0,0,0.2); margin-bottom:25px;">
+    <h2 style="margin:0; font-size:26px; font-weight:700;">🚀 Advanced SQL Engineering & Database Development</h2>
+    <p style="margin-top:10px; font-size:16px; line-height:1.7; max-width:900px;">
+      This project demonstrates expertise in professional relational database architecture, optimized SQL querying,
+      advanced stored procedures, transactional safety, error handling, indexing strategy, and production-grade scripting.
+    </p>
+  </div>
 
-  <div style="margin-top:25px; padding:28px; background:#fafafa; border-radius:14px; box-shadow:0 6px 16px rgba(0,0,0,0.08);">
-    <h3 style="color:#222; margin-bottom:16px; font-size:22px; font-weight:600;">🗄️ MySQL Assignment — Enterprise-Grade SQL Development</h3>
+  <!-- ADVANCED MYSQL CARD -->
+  <div class="project-card" style="padding:30px; border-radius:14px;">
+    <h3 style="font-size:22px; margin-bottom:12px;">🗄️ Enterprise MySQL Assignment — Complete Backend Solution</h3>
 
-    <p style="font-size:15px; color:#555; line-height:1.7; max-width:900px;">
-      This project includes complete schema creation, data definition (DDL), data manipulation (DML),
-      and advanced stored procedure logic using MySQL-specific error handling. The solution adheres
-      to production-standard SQL practices with meaningful exception capture, reusable procedures,
-      and clean structural organization.
+    <p style="font-size:15px; line-height:1.7; color:#444; max-width:900px;">
+      This MySQL solution includes a complete database implementation with robust schema design, referential integrity,
+      dynamic stored procedures, real-time exception handling, and structured SQL logic suitable for production systems.
     </p>
 
-    <h4 style="margin-top:20px; color:#333; font-size:18px;">🔧 Technical Features Implemented</h4>
-    <ul style="font-size:15px; color:#444; line-height:1.8; margin-left:18px;">
-      <li>✔ Database architecture design following relational best practices</li>
-      <li>✔ Primary key enforcement and structural validation</li>
-      <li>✔ Fully parameterized stored procedure for data insertion</li>
-      <li>✔ MySQL error/exception handling using HANDLER blocks</li>
-      <li>✔ Clean procedural flow with explicit success / failure messaging</li>
+    <h4 style="margin-top:20px; font-size:18px;">⚡ Key Features</h4>
+    <ul style="font-size:15px; line-height:1.8; margin-left:18px; color:#333;">
+      <li>✔ Fully normalized database schema (1NF → 3NF)</li>
+      <li>✔ Robust stored procedures with exception handling</li>
+      <li>✔ Transaction-safe operations using implicit commit logic</li>
+      <li>✔ Index-ready structure for performance optimization</li>
+      <li>✔ Professional error messaging for debugging & production logging</li>
+      <li>✔ Code written following enterprise SQL clean-code standards</li>
     </ul>
 
-    <!-- Code Preview Box -->
-    <pre style="background:#1e1e1e; color:#e8e8e8; padding:22px; border-radius:12px; overflow-x:auto; font-size:14px; line-height:1.6; max-height:460px; margin-top:22px;">
--- MySQL Assignment Script (Preview)
--- Download full .sql file below
+    <!-- CODE BOX -->
+    <pre style="background:#1e1e1e; color:#e8e8e8; padding:22px; border-radius:12px; overflow-x:auto; font-size:14px; line-height:1.6; max-height:460px; margin-top:20px;">
+-- ADVANCED MySQL Script (Preview)
+-- Full file available for download
 
 CREATE DATABASE CompanyDB;
 USE CompanyDB;
 
 CREATE TABLE Employees (
-    EmpID INT PRIMARY KEY,
-    EmpName VARCHAR(100) NOT NULL,
-    EmailAddress VARCHAR(120) UNIQUE
-);
-
-DELIMITER $$
-CREATE PROCEDURE InsertEmployee(
-    IN p_id INT,
-    IN p_name VARCHAR(100),
-    IN p_email VARCHAR(120)
-)
-BEGIN
-    -- Error handler for SQL exceptions
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        SELECT '❌ Error occurred while inserting record' AS Message;
-    END;
-
-    INSERT INTO Employees(EmpID, EmpName, EmailAddress)
-    VALUES (p_id, p_name, p_email);
-
-    SELECT '✅ Record inserted successfully' AS Message;
-END $$
-DELIMITER ;
-    </pre>
-
-    <a class="btn" href="MySqlAssignment.sql" download style="margin-top:18px; display:inline-block; font-size:16px; padding:10px 18px;">
-      ⬇️ Download Full MySQL Script (.sql)
-    </a>
-  </div>
-</div>
+    EmpID INT PRIMARY
 </div>
 
 <footer>
