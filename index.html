@@ -27,6 +27,7 @@
     }
     a{color:var(--accent)}
 
+    /* Top nav */
     .top-nav{
       width:100%;background:var(--nav);padding:12px 22px;position:sticky;top:0;z-index:1000;
       display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)
@@ -36,8 +37,10 @@
     .nav-right img{width:28px;transition:transform .22s}
     .nav-right img:hover{transform:scale(1.15)}
 
+    /* theme toggle */
     #themeToggle{background:none;border:0;font-size:20px;cursor:pointer;margin-right:6px}
 
+    /* header */
     header{
       background:linear-gradient(135deg,#0078ff,#00b1ff);
       padding:56px 18px;text-align:center;color:#fff;border-bottom-left-radius:18px;border-bottom-right-radius:18px;
@@ -50,11 +53,14 @@
     .skill-badge{background:#fff;color:#111;padding:8px 14px;border-radius:20px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,0.08);transition:.2s}
     .skill-badge:hover{transform:translateY(-5px)}
 
+    /* main nav */
     .main-nav{background:#222;text-align:center;padding:12px;border-radius:10px;margin:20px auto;width:92%;max-width:1100px}
     .main-nav a{color:#fff;margin:0 14px;text-decoration:none;font-weight:700}
 
+    /* sections */
     .section{padding:30px;background:var(--card);margin:20px auto;border-radius:12px;max-width:1100px;width:92%;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:.3s}
 
+    /* cards */
     .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:18px}
 
     .project-card{
@@ -77,11 +83,12 @@
     #topBtn:hover{background:#005fcc}
 
     footer{background:#0b0b0b;color:#fff;padding:20px;text-align:center;margin-top:30px;border-radius:10px}
+
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- TOP NAV -->
   <div class="top-nav">
     <div class="brand">Chiru Gowda | Portfolio</div>
     <div class="nav-right">
@@ -91,7 +98,7 @@
     </div>
   </div>
 
-  <!-- HEADER -->
+  <!-- HERO -->
   <header>
     <h1>Chiru Gowda — Data Analyst</h1>
     <p>Power BI • Tableau • Excel • MySQL • Visualization</p>
@@ -106,7 +113,7 @@
     </div>
   </header>
 
-  <!-- MAIN MENU -->
+  <!-- MAIN NAV -->
   <nav class="main-nav">
     <a href="#powerbi">Power BI</a>
     <a href="#tableau">Tableau</a>
@@ -115,9 +122,10 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- POWER BI SECTION -->
+  <!-- POWER BI -->
   <section class="section" id="powerbi">
     <h2>Power BI</h2>
+
     <div class="project-grid">
       <div class="project-card">
         <h3>📊 Sales Dashboard (Power BI)</h3>
@@ -130,7 +138,7 @@
     </div>
   </section>
 
-  <!-- TABLEAU SECTION -->
+  <!-- TABLEAU -->
   <section class="section" id="tableau">
     <h2>Tableau</h2>
 
@@ -145,7 +153,7 @@
     </div>
   </section>
 
-  <!-- EXCEL SECTION -->
+  <!-- EXCEL -->
   <section class="section" id="excel">
     <h2>Excel</h2>
 
@@ -155,89 +163,46 @@
         <p>Excel dashboard embedded from OneDrive.</p>
 
         <iframe
-          src="https://1drv.ms/x/s!AqJpdorgmEYWgQe3cZwP0ErHXyvH?embed=1"
-          width="100%" height="600" frameborder="0">
-        </iframe>
+          src="https://1drv.ms/x/c/E60B13B193A9C309/IQQ1pQEMe-NmS6pu2-TpkFdPAegl0y4YH7peF-INAc7u548?em=2&wdAllowInteractivity=True&wdHideGridlines=True&wdHideHeaders=True"
+          style="width:100%;height:720px;border:0;border-radius:10px;"></iframe>
+
+        <a class="btn" href="Sales report dashboard.xlsx" download>⬇️ Download Excel Dashboard</a>
       </div>
     </div>
   </section>
 
-  <!-- MYSQL SECTION -->
+  <!-- MYSQL -->
   <section class="section" id="mysql">
-    <h2>MySQL Projects</h2>
+    <h2>MySQL</h2>
 
     <div class="project-grid">
-
-      <!-- PROJECT 1 -->
       <div class="project-card">
-        <h3>🛒 E-Commerce Analytics (Advanced SQL)</h3>
-        <p>Complex SQL queries including joins, CTEs, window functions and business insights.</p>
+        <h3>🗄️ Full SQL Assignment</h3>
 
-<pre class="code">
--- Monthly Revenue + YOY Growth
-WITH sales_cte AS (
-  SELECT 
-    DATE_FORMAT(order_date, '%Y-%m') AS month,
-    SUM(amount) AS revenue
-  FROM orders
-  GROUP BY 1
-),
-yoy AS (
-  SELECT 
-    month,
-    revenue,
-    LAG(revenue) OVER (ORDER BY month) AS prev_month,
-    ROUND(((revenue - LAG(revenue) OVER (ORDER BY month)) 
-      / LAG(revenue) OVER (ORDER BY month)) * 100, 2) AS YOY_Growth
-  FROM sales_cte
-)
-SELECT * FROM yoy;
-</pre>
+        <details>
+          <summary>▶ Show SQL Preview</summary>
+          <pre class="code">
+-- Example SQL
+SELECT * FROM employees;
+          </pre>
+        </details>
+
+        <a class="btn" href="MySqlAssignment.sql" download>⬇️ Download SQL Assignment</a>
       </div>
-
-      <!-- PROJECT 2 -->
-      <div class="project-card">
-        <h3>🏥 Hospital Analytics (SQL)</h3>
-        <p>Readmission rates, patient segmentation & ranking queries.</p>
-
-<pre class="code">
--- Top performing doctors by patient satisfaction
-SELECT 
-  doctor_name,
-  COUNT(*) AS total_patients,
-  AVG(satisfaction_score) AS avg_rating,
-  RANK() OVER (ORDER BY AVG(satisfaction_score) DESC) AS rank_doctor
-FROM patient_records
-GROUP BY doctor_name;
-</pre>
-      </div>
-
-      <!-- PROJECT 3 -->
-      <div class="project-card">
-        <h3>🚚 Supply Chain Optimization</h3>
-        <p>Delivery efficiency analysis using SQL window functions.</p>
-
-<pre class="code">
--- Delay analysis by region
-SELECT 
-  region,
-  AVG(delivery_time) AS avg_days,
-  AVG(CASE WHEN delivery_time > 5 THEN 1 ELSE 0 END) * 100 AS late_delivery_percentage
-FROM shipments
-GROUP BY region;
-</pre>
-      </div>
-
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section class="section" id="contact">
     <h2>Contact</h2>
-    <p><strong>Email:</strong> chiranthkj07@gmail.com</p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/Chirugow" target="_blank">github.com/Chirugow</a></p>
 
-    <a class="btn" href="chiranthKJresume.docx" target="_blank">📄 View / Download Resume</a>
+    <div class="project-card">
+      <p><strong>Email:</strong> <a href="mailto:chiranthgowda50@gmail.com">chiranthgowda50@gmail.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chiranthkj" target="_blank">linkedin.com/in/chiranthkj</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Chirugow" target="_blank">github.com/Chirugow</a></p>
+
+      <a class="btn" href="chiranthKJresume.docx" target="_blank">📄 View / Download Resume </a>
+    </div>
   </section>
 
   <!-- BACK TO TOP -->
