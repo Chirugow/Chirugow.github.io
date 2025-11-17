@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chirugow | Data Portfolio</title>
+  <title>Chiru Gowda | Data Portfolio</title>
 
-  <!-- ======= Base styles ======= -->
   <style>
     :root {
       --bg: #f4f4f4;
@@ -14,354 +13,247 @@
       --nav: #ffffff;
       --accent: #0078ff;
     }
-    .dark-mode {
-      --bg: #121212;
-      --text: #f5f5f5;
-      --card: #1e1e1e;
-      --nav: #1a1a1a;
-    }
-
-    html,body{margin:0;padding:0;height:100%;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);transition:background .35s,color .35s}
+    body{margin:0;padding:0;font-family:Arial;background:var(--bg);color:var(--text);transition:.3s}
     a{color:var(--accent)}
-    header{background:linear-gradient(135deg,#0078ff,#00c6ff); padding:60px 20px; color:#fff; text-align:center; border-bottom-left-radius:20px; border-bottom-right-radius:20px; box-shadow:0 4px 18px rgba(0,0,0,0.18)}
-    header h1{margin:0;font-size:36px}
-    header p{margin:6px 0 0 0;opacity:.95}
 
-    /* Top sticky nav */
+    /* Top Navigation */
     .top-nav{
-      width:100%;
-      background:var(--nav);
-      padding:14px 28px;
-      position:sticky;
-      top:0;
-      z-index:1000;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      width:100%;background:var(--nav);padding:14px 28px;position:sticky;top:0;
+      z-index:1000;display:flex;justify-content:space-between;align-items:center;
       box-shadow:0 2px 10px rgba(0,0,0,0.08);
     }
-    .top-nav .brand{font-size:20px;font-weight:700;color:var(--text)}
-    .top-nav .nav-right{display:flex;align-items:center;gap:16px}
 
-    /* Secondary nav below header */
-    .main-nav{background:#333;padding:12px;text-align:center;margin:20px auto;border-radius:8px;width:90%;max-width:1100px}
-    .main-nav a{color:#fff;margin:0 14px;text-decoration:none;font-size:16px}
+    .brand{font-size:20px;font-weight:700;color:var(--text)}
 
-    /* Sections & cards */
-    .section{padding:36px;background:var(--card);margin:20px auto;width:90%;max-width:1100px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:transform .35s,box-shadow .35s}
-    .section h2{margin-top:0;color:var(--text)}
-    .project-card{background:var(--card);padding:22px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:all .35s ease-in-out}
-    .project-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 18px 40px rgba(0,0,0,0.18)}
+    .nav-right{display:flex;gap:16px;align-items:center}
+    .nav-right img{width:28px;transition:.25s}
+    .nav-right img:hover{transform:scale(1.15)}
+
+    /* Hero Section */
+    header{
+      background:linear-gradient(135deg,#0078ff,#00b1ff);
+      padding:60px 20px;text-align:center;color:#fff;
+      border-bottom-left-radius:20px;border-bottom-right-radius:20px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.2)
+    }
+    header h1{margin:0;font-size:38px}
+    header p{margin:6px 0 0;font-size:18px}
+
+    /* Skill Badges */
+    .skill-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .skill-badge{
+      background:#fff;color:#111;padding:8px 14px;font-weight:bold;
+      border-radius:20px;box-shadow:0 4px 14px rgba(0,0,0,.1);transition:.25s;
+    }
+    .skill-badge:hover{transform:translateY(-5px)}
+
+    /* Internal Navigation */
+    .main-nav{
+      background:#333;padding:12px;text-align:center;margin:20px auto;
+      width:90%;max-width:1100px;border-radius:8px
+    }
+    .main-nav a{color:#fff;margin:0 18px;font-size:16px;text-decoration:none}
+
+    /* Sections */
+    .section{
+      padding:35px;background:#fff;margin:20px auto;width:90%;max-width:1100px;
+      border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08);transition:.3s
+    }
+    .section:hover{transform:translateY(-4px)}
+
+    .project-card{
+      padding:22px;background:#fff;border-radius:12px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);transition:.3s;margin-top:20px
+    }
+    .project-card:hover{
+      transform:translateY(-5px) scale(1.01);
+      box-shadow:0 14px 28px rgba(0,0,0,0.18);
+    }
 
     /* Buttons */
-    .btn{display:inline-block;padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;position:relative;overflow:hidden;transition:background .25s,transform .25s}
+    .btn{
+      padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;
+      text-decoration:none;font-weight:600;transition:.25s;
+    }
     .btn:hover{background:#005fcc;transform:translateY(-3px)}
-    .btn::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(255,255,255,0.18);transform:skewX(-20deg);transition:left .45s}
-    .btn:hover::after{left:100%}
 
-    /* Skill badges & social */
-    .skill-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
-    .skill-badge{background:#fff;padding:8px 14px;border-radius:20px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:transform .25s}
-    .skill-badge:hover{transform:translateY(-6px)}
-    .social-bar{display:flex;gap:14px;justify-content:center;margin-top:14px}
-    .social-bar img{width:30px;filter:brightness(90%);transition:transform .25s,filter .25s}
-    .social-bar img:hover{transform:scale(1.15);filter:brightness(120%)}
+    /* Back to Top */
+    #topBtn{
+      display:none;position:fixed;bottom:30px;right:30px;padding:12px 14px;
+      background:#0078ff;color:#fff;border-radius:50%;cursor:pointer;
+      box-shadow:0 6px 14px rgba(0,0,0,0.25);font-size:18px;
+    }
+    #topBtn:hover{background:#005fcc}
 
-    /* Hover animation for cards already defined above */
-    .project-card{margin-bottom:20px}
-
-    /* Fade-in on scroll */
-    .fade-in{opacity:0;transform:translateY(25px);transition:opacity .8s ease-out,transform .8s ease-out}
-    .fade-in.visible{opacity:1;transform:translateY(0)}
-
-    /* Details/summary style */
-    details[open] summary::after{content:" ▾";font-weight:700}
-    summary{cursor:pointer;font-weight:700}
-
-    /* Simple table styling used for preview (if any) */
-    table{width:100%;border-collapse:collapse}
-    thead tr{background:#333;color:#fff}
-    th,td{padding:10px;border-bottom:1px solid #e6e6e6;text-align:left}
-
-    /* Floating top button */
-    #topBtn{position:fixed;bottom:30px;right:30px;background:var(--accent);color:#fff;padding:12px 14px;border-radius:50%;cursor:pointer;font-size:20px;display:none;box-shadow:0 6px 20px rgba(0,0,0,0.25);z-index:2000}
-    #topBtn:hover{background:#005fcc;transform:translateY(-4px)}
-
-    /* Footer */
-    footer{background:linear-gradient(135deg,#111,#333);color:#fff;padding:28px;text-align:center;margin-top:40px;border-top-left-radius:10px;border-top-right-radius:10px}
+    footer{
+      margin-top:40px;background:#111;color:#fff;text-align:center;padding:22px;
+      border-top-left-radius:12px;border-top-right-radius:12px;
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- TOP NAV -->
-  <div class="top-nav">
-    <div class="brand">Chiru Gowda | Portfolio</div>
-    <div class="nav-right">
-      <!-- GitHub -->
-      <a href="https://github.com/Chirugow" target="_blank" title="GitHub">
-        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="width:26px;filter:brightness(70%);transition:all .25s" onmouseover="this.style.transform='scale(1.18)';this.style.filter='brightness(120%)';" onmouseout="this.style.transform='scale(1)';this.style.filter='brightness(70%)'"/>
-      </a>
-      <!-- LinkedIn (opens your profile) -->
-      <a href="https://www.linkedin.com/in/chiranthkj" target="_blank" title="LinkedIn">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" style="width:26px;filter:brightness(70%);transition:all .25s" onmouseover="this.style.transform='scale(1.18)';this.style.filter='brightness(120%)';" onmouseout="this.style.transform='scale(1)';this.style.filter='brightness(70%)'"/>
-      </a>
-    </div>
+<!-- TOP NAV BAR -->
+<div class="top-nav">
+  <div class="brand">Chiru Gowda | Portfolio</div>
+
+  <div class="nav-right">
+    <a href="https://github.com/Chirugow" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
+    </a>
+
+    <a href="https://linkedin.com/in/chiranthkj" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+    </a>
   </div>
+</div>
 
-  <!-- HERO -->
-  <header>
-    <h1>Chirugow | Data Analyst Portfolio</h1>
-    <p>Power BI • Tableau • Excel • SQL • Data Visualization</p>
 
-    <!-- SKILL BADGES -->
-    <div class="skill-badges">
-      <div class="skill-badge">Power BI</div>
-      <div class="skill-badge">Tableau</div>
-      <div class="skill-badge">Excel</div>
-      <div class="skill-badge">SQL</div>
-      <div class="skill-badge">Python</div>
-      <div class="skill-badge">Data Visualization</div>
+<!-- HERO SECTION -->
+<header>
+  <h1>Chiru Gowda | Data Analyst Portfolio</h1>
+  <p>Power BI • Tableau • Excel • SQL • Data Visualization</p>
+
+  <div class="skill-badges">
+    <div class="skill-badge">Power BI</div>
+    <div class="skill-badge">Tableau</div>
+    <div class="skill-badge">Excel</div>
+    <div class="skill-badge">MySQL</div>
+    <div class="skill-badge">Python</div>
+    <div class="skill-badge">Analytics</div>
+  </div>
+</header>
+
+
+<!-- INTERNAL NAVIGATION -->
+<nav class="main-nav">
+  <a href="#powerbi">Power BI</a>
+  <a href="#tableau">Tableau</a>
+  <a href="#excel">Excel</a>
+  <a href="#mysql">MySQL</a>
+</nav>
+
+
+<!-- POWERBI -->
+<div class="section" id="powerbi">
+  <h2>Power BI Dashboard</h2>
+  <div class="project-card">
+    <h3>📊 Sales Dashboard</h3>
+
+    <iframe title="Powerbi Assignment" width="100%" height="650"
+      src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMDM2ZDhlOTEtNmQ5Zi00YzUzLWFkODktYTEzYjViZThjMjk1IiwidCI6IjdjMjQyMjEwLTViNWUtNDIyOS04Y2ZlLTY0NTM2YzUyNTJhZiJ9"
+      frameborder="0" allowFullScreen="true">
+    </iframe>
+  </div>
+</div>
+
+
+<!-- TABLEAU -->
+<div class="section" id="tableau">
+  <h2>Tableau Visualizations</h2>
+
+  <div class="project-card">
+    <h3>📊 Superstore Dashboard</h3>
+
+    <div class='tableauPlaceholder' id='viz1'>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https://public.tableau.com/' />
+        <param name='name' value='TableauAssignmnets1/FinalDashboard' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+      </object>
     </div>
 
-    <!-- SOCIAL -->
-    <div class="social-bar">
-      <a href="https://github.com/Chirugow" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"></a>
-      <a href="https://www.linkedin.com/in/chiranthkj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
-    </div>
-  </header>
+    <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
+  </div>
+</div>
 
-  <!-- MAIN NAV (below hero) -->
-  <nav class="main-nav">
-    <a href="#powerbi">Power BI</a>
-    <a href="#tableau">Tableau</a>
-    <a href="#excel">Excel</a>
-    <a href="#mysql">MySQL</a>
-  </nav>
 
-  <!-- POWER BI SECTION -->
-  <section class="section fade-in" id="powerbi">
-    <h2>Power BI Dashboards</h2>
-    <p style="font-size:16px;color:#444;line-height:1.6;max-width:950px">
-      Fully interactive Power BI dashboards built using DAX, advanced data modeling, measures and KPI visualizations.
-    </p>
+<!-- EXCEL -->
+<div class="section" id="excel">
+  <h2>Excel Dashboard</h2>
 
-    <div class="project-card" style="margin-top:18px;">
-      <h3 style="margin-top:0">📊 Power BI Sales Dashboard</h3>
-      <!-- Replace with your real Power BI iframe; this is the one you provided -->
-      <iframe title="Powerbi Assignment"
-        src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMDM2ZDhlOTEtNmQ5Zi00YzUzLWFkODktYTEzYjViZThjMjk1IiwidCI6IjdjMjQyMjEwLTViNWUtNDIyOS04Y2ZlLTY0NTM2YzUyNTJhZiJ9"
-        style="width:100%;height:680px;border:0;border-radius:10px" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
+  <div class="project-card">
+    <h3>📊 Excel Sales Dashboard</h3>
 
-  <!-- TABLEAU SECTION -->
-  <section class="section fade-in" id="tableau">
-    <h2>Tableau Visualizations</h2>
-    <p style="font-size:16px;color:#444;line-height:1.6;max-width:950px">
-      Interactive Tableau dashboards built for storytelling, KPI insights, and business intelligence.
-    </p>
+    <iframe
+      src="https://1drv.ms/x/c/E60B13B193A9C309/IQQ1pQEMe-NmS6pu2-TpkFdPAegl0y4YH7peF-INAc7u548?em=2&wdAllowInteractivity=True&wdHideGridlines=True&wdHideHeaders=True"
+      style="width:100%; height:800px; border:0; border-radius:12px;">
+    </iframe>
 
-    <div class="project-card" style="margin-top:18px;">
-      <h3 style="margin-top:0">📊 Tableau Dashboard</h3>
+    <a class="btn" href="Sales report dashboard.xlsx" download>⬇️ Download Excel Dashboard</a>
+  </div>
+</div>
 
-      <!-- Embedded Tableau Visualization (your provided embed) -->
-      <div class='tableauPlaceholder' id='viz1763265902045' style='position: relative'>
-        <noscript>
-          <a href='#'>
-            <img alt='ANALYTICS REPORT FOR SUPERSTORE, USA '
-                 src='https://public.tableau.com/static/images/Ta/TableauAssignmnets1/FinalDashboard/1_rss.png'
-                 style='border: none' />
-          </a>
-        </noscript>
 
-        <object class='tableauViz' style='display:none;'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='site_root' value='' />
-          <param name='name' value='TableauAssignmnets1/FinalDashboard' />
-          <param name='tabs' value='no' />
-          <param name='toolbar' value='yes' />
-          <param name='static_image'
-                 value='https://public.tableau.com/static/images/Ta/TableauAssignmnets1/FinalDashboard/1.png' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='language' value='en-US' />
-          <param name='filter' value='publish=yes' />
-        </object>
-      </div>
+<!-- MYSQL -->
+<div class="section" id="mysql">
+  <h2>MySQL Assignment</h2>
 
-      <script type='text/javascript'>
-        (function(){
-          var divElement = document.getElementById('viz1763265902045');
-          var vizElement = divElement.getElementsByTagName('object')[0];
-          if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';}
-          else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';}
-          else { vizElement.style.width='100%';vizElement.style.height='2527px';}
-          var scriptElement = document.createElement('script');
-          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-          vizElement.parentNode.insertBefore(scriptElement, vizElement);
-        })();
-      </script>
-    </div>
-  </section>
+  <div class="project-card">
+    <h3>🗄️ Complete SQL Assignment — 13 Topics Covered</h3>
 
-  <!-- EXCEL SECTION -->
-  <section class="section fade-in" id="excel">
-    <h2>Excel Dashboard</h2>
-    <p style="font-size:16px;color:#444;line-height:1.6;max-width:950px">
-      Interactive Excel workbook embedded from OneDrive (view + download available).
-    </p>
+    <h4>📌 Topics Implemented</h4>
+    <ul>
+      <li>SELECT, DISTINCT, LIKE, WHERE</li>
+      <li>CASE segmentation</li>
+      <li>Aggregations & HAVING</li>
+      <li>JOINS & SELF JOIN</li>
+      <li>DDL — CREATE, ALTER, RENAME</li>
+      <li>Views</li>
+      <li>Stored Procedures</li>
+      <li>Window Functions</li>
+      <li>Triggers</li>
+    </ul>
 
-    <div class="project-card" style="margin-top:18px;">
-      <h3 style="margin-top:0">📊 Sales Performance (Excel)</h3>
-
-      <!-- OneDrive embed (use the link you provided) -->
-      <div style="width:100%;max-width:1200px;margin:0 auto;">
-        <iframe
-          src="https://1drv.ms/x/c/E60B13B193A9C309/IQQ1pQEMe-NmS6pu2-TpkFdPAegl0y4YH7peF-INAc7u548?em=2&wdAllowInteractivity=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"
-          style="width:100%;height:820px;border:0;border-radius:10px;display:block;overflow:hidden"
-          frameborder="0" scrolling="no" allowfullscreen></iframe>
-      </div>
-
-      <a class="btn" href="Sales report dashboard.xlsx" download style="margin-top:14px;display:inline-block">
-        ⬇️ Download Excel Dashboard (.xlsx)
-      </a>
-    </div>
-  </section>
-
-  <!-- MYSQL SECTION -->
-  <section class="section fade-in" id="mysql">
-    <h2>MySQL Projects</h2>
-
-    <div class="project-card" style="padding:30px; border-radius:14px; background:#fafafa; box-shadow:0 4px 12px rgba(0,0,0,0.08); margin-top:18px;">
-      <h3 style="font-size:22px; margin-bottom:12px;">🗄️ Complete SQL Assignment — 13 Topics Covered</h3>
-
-      <h4 style="margin-top:18px; font-size:18px;">📌 Topics Implemented</h4>
-      <ul style="font-size:15px; line-height:1.8; margin-left:18px; color:#333;">
-        <li>✔ Q1: SELECT, DISTINCT, LIKE, WHERE, AND</li>
-        <li>✔ Q2: CASE statements for segmentation</li>
-        <li>✔ Q3: Aggregations, HAVING, Date Functions</li>
-        <li>✔ Q4: Constraints (PK, FK, UNIQUE, CHECK, NOT NULL)</li>
-        <li>✔ Q5: JOINS — Multi-table queries</li>
-        <li>✔ Q6: SELF JOIN — Employee ↔ Manager</li>
-        <li>✔ Q7: DDL — CREATE, ALTER, RENAME</li>
-        <li>✔ Q8: SQL VIEWS with joins</li>
-        <li>✔ Q9: Stored Procedure with Parameters</li>
-        <li>✔ Q10: Window Functions (RANK, DENSE_RANK, LAG)</li>
-        <li>✔ Q11: Subqueries (Scalar + Filtering)</li>
-        <li>✔ Q12: Error Handling with Transactions</li>
-        <li>✔ Q13: SQL TRIGGERS — BEFORE INSERT validation</li>
-      </ul>
-
-      <h4 style="margin-top:18px; font-size:18px;">⚡ Technical Strengths Demonstrated</h4>
-      <ul style="font-size:15px; line-height:1.8; margin-left:18px; color:#333;">
-        <li>✔ Enterprise-grade stored procedures with error handling (ROLLBACK / COMMIT)</li>
-        <li>✔ BEFORE INSERT trigger to sanitize invalid data</li>
-        <li>✔ Successfully implemented schema creation for new databases</li>
-        <li>✔ Window functions for time-series analysis</li>
-        <li>✔ DDL automation with RENAME, ALTER, and CHECK constraints</li>
-        <li>✔ View creation for aggregated sales insights</li>
-      </ul>
-
-      <!-- Collapsible extended preview -->
-      <details style="margin-top:14px">
-        <summary style="font-size:16px; font-weight:700; cursor:pointer;">▶ Show More SQL Preview</summary>
-        <pre style="background:#1e1e1e;color:#e8e8e8;padding:16px;border-radius:10px;overflow-x:auto;font-size:14px;line-height:1.6;margin-top:12px;max-height:420px">
--- FULL MySQL Assignment Preview
--- Contains: SELECT, CASE, JOINS, VIEWS, PROCEDURES, TRIGGERS, WINDOW FUNCTIONS
-
--- Example from Q1
+    <pre style="background:#1e1e1e;color:#fff;padding:20px;border-radius:10px;overflow:auto">
+-- Preview of your MySQL Assignment
 SELECT employeeNumber, firstName, lastName
 FROM employees
-WHERE jobTitle = 'Sales Rep'
-  AND reportsTo = 1102;
+WHERE jobTitle = 'Sales Rep';
 
--- Example from Q9 (Stored Procedure)
 CREATE PROCEDURE Get_country_payments(
   IN input_year INT,
   IN input_country VARCHAR(50)
 )
 BEGIN
-  SELECT YEAR(p.paymentDate) AS `Year`, c.country AS `Country`,
-         CONCAT(ROUND(SUM(p.amount)/1000,0), 'K') AS `Total Amount`
-  FROM payments p
-  JOIN customers c ON p.customerNumber = c.customerNumber
-  WHERE YEAR(p.paymentDate) = input_year
-    AND c.country = input_country
-  GROUP BY YEAR(p.paymentDate), c.country;
+  SELECT * FROM payments;
 END;
+    </pre>
 
--- Example from Q13 Trigger
-CREATE TRIGGER trg_BI_WorkingHours_Positive
-BEFORE INSERT ON Emp_BIT
-FOR EACH ROW
-BEGIN
-  IF NEW.Working_hours < 0 THEN
-    SET NEW.Working_hours = ABS(NEW.Working_hours);
-  END IF;
-END;
-        </pre>
-      </details>
-
-      <a class="btn" href="MySqlAssignment.sql" download style="margin-top:18px;display:inline-block">
-        ⬇️ Download Full MySQL Assignment (.sql)
-      </a>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section class="section fade-in" id="contact">
-    <h2>Contact Me</h2>
-    <p style="font-size:16px;color:#444;line-height:1.6;max-width:900px">
-      Feel free to reach out for opportunities, collaborations, or project discussions.
-    </p>
-
-    <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px;font-size:16px">
-      <div>📧 <strong>Email:</strong> <a href="mailto:chiranthgowda50@gmail.com">chiranthgowda50@gmail.com</a></div>
-      <div>🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chiranthkj" target="_blank">linkedin.com/in/chiranthkj</a></div>
-      <div>💼 <strong>GitHub:</strong> <a href="https://github.com/Chirugow" target="_blank">github.com/Chirugow</a></div>
-    </div>
-  </section>
-
-  <!-- RESUME BUTTON -->
-  <div style="text-align:center;margin:36px 0 80px 0">
-    <a class="btn" href="chiranthKJresume.docx" download style="font-size:18px;padding:12px 22px; border-radius:10px">
-      ⬇️ Download My Resume
-    </a>
-    <p style="margin-top:8px;color:#666;font-size:14px">If you want a PDF version, I can convert and add it here.</p>
+    <a class="btn" href="MySqlAssignment.sql" download>⬇️ Download Full SQL File</a>
   </div>
+</div>
 
-  <footer class="fade-in">
-    <p>© 2025 Chirugow | Data Portfolio</p>
-  </footer>
 
-  <!-- Floating back to top -->
-  <div id="topBtn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</div>
+<!-- CONTACT + RESUME -->
+<div class="section" id="contact">
+  <h2>Contact & Resume</h2>
 
-  <!-- ======= Scripts: scroll animations & misc ======= -->
-  <script>
-    // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.15 });
+  <div class="project-card">
+    <p><strong>Email:</strong> chiranthgowda50@gmail.com</p>
 
-    document.querySelectorAll('.section, .project-card, iframe, footer').forEach(el => {
-      el.classList.add('fade-in');
-      observer.observe(el);
-    });
+    <a class="btn" href="chiranthKJresume.pdf" target="_blank">📄 View Resume (PDF)</a>
+  </div>
+</div>
 
-    // Show back-to-top
-    window.addEventListener('scroll', () => {
-      document.getElementById('topBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
 
-    // Optional: dark-mode toggle function (call toggleDarkMode() to switch)
-    function toggleDarkMode(){ document.body.classList.toggle('dark-mode'); }
-  </script>
+<!-- BACK TO TOP -->
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Show back-to-top button
+  window.onscroll = function(){
+    document.getElementById("topBtn").style.display =
+      document.documentElement.scrollTop > 200 ? "block" : "none";
+  };
+</script>
+
+
+<footer>
+  <p>© 2025 Chiru Gowda | Data Portfolio</p>
+</footer>
+
 </body>
 </html>
