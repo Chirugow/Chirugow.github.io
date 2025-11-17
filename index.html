@@ -303,12 +303,85 @@
 
   <!-- ADVANCED MYSQL SUMMARY CARD -->
   <div style="background:linear-gradient(135deg,#0078ff,#00c6ff); padding:25px; border-radius:14px; color:white; box-shadow:0 6px 18px rgba(0,0,0,0.2); margin-bottom:25px;">
-    <h2 style="margin:0; font-size:26px; font-weight:700;">🚀 Advanced SQL Engineering & Database Development</h2>
+    <h2 style="margin:0; font-size:26px; font-weight:700;">🚀 Full MySQL Assignment — Advanced Database Engineering</h2>
     <p style="margin-top:10px; font-size:16px; line-height:1.7; max-width:900px;">
-      This project demonstrates expertise in professional relational database architecture, optimized SQL querying,
-      advanced stored procedures, transactional safety, error handling, indexing strategy, and production-grade scripting.
+      This section showcases a complete end-to-end SQL assignment containing <strong>DDL, DML, Joins, Views, Procedures, Triggers, Error Handling, Window Functions, Subqueries, Constraints, and Transactions</strong> — all built using the <strong>ClassicModels</strong> dataset and custom databases. The entire solution reflects real-world enterprise SQL development practices.
     </p>
   </div>
+
+  <!-- ADVANCED MYSQL CARD WITH FULL ASSIGNMENT FEATURES -->
+  <div class="project-card" style="padding:30px; border-radius:14px;">
+    <h3 style="font-size:22px; margin-bottom:12px;">🗄️ Complete SQL Assignment — 13 Topics Covered</h3>
+
+    <h4 style="margin-top:20px; font-size:18px;">📌 Topics Implemented</h4>
+    <ul style="font-size:15px; line-height:1.8; margin-left:18px; color:#333;">
+      <li>✔ Q1: SELECT, DISTINCT, LIKE, WHERE, AND</li>
+      <li>✔ Q2: CASE statements for segmentation</li>
+      <li>✔ Q3: Aggregations, HAVING, Date Functions</li>
+      <li>✔ Q4: Constraints (PK, FK, UNIQUE, CHECK, NOT NULL)</li>
+      <li>✔ Q5: JOINS — Multi-table queries</li>
+      <li>✔ Q6: SELF JOIN — Employee ↔ Manager</li>
+      <li>✔ Q7: DDL — CREATE, ALTER, RENAME</li>
+      <li>✔ Q8: SQL VIEWS with joins</li>
+      <li>✔ Q9: Stored Procedure with Parameters</li>
+      <li>✔ Q10: Window Functions (RANK, DENSE_RANK, LAG)</li>
+      <li>✔ Q11: Subqueries (Scalar + Filtering)</li>
+      <li>✔ Q12: Error Handling with Transactions</li>
+      <li>✔ Q13: SQL TRIGGERS — BEFORE INSERT validation</li>
+    </ul>
+
+    <h4 style="margin-top:20px; font-size:18px;">⚡ Technical Strengths Demonstrated</h4>
+    <ul style="font-size:15px; line-height:1.8; margin-left:18px; color:#333;">
+      <li>✔ Enterprise-grade stored procedures with error handling (ROLLBACK / COMMIT)</li>
+      <li>✔ BEFORE INSERT trigger to sanitize invalid data</li>
+      <li>✔ Successfully implemented schema creation for new databases</li>
+      <li>✔ Window functions for time-series analysis</li>
+      <li>✔ DDL automation with RENAME, ALTER, and CHECK constraints</li>
+      <li>✔ View creation for aggregated sales insights</li>
+    </ul>
+
+    <!-- CODE BOX PREVIEW FROM USER FILE -->
+    <pre style="background:#1e1e1e; color:#e8e8e8; padding:22px; border-radius:12px; overflow-x:auto; font-size:14px; line-height:1.6; max-height:460px; margin-top:20px;">
+-- FULL MySQL Assignment Preview
+-- Contains: SELECT, CASE, JOINS, VIEWS, PROCEDURES, TRIGGERS, WINDOW FUNCTIONS
+
+-- Example from Q1
+SELECT employeeNumber, firstName, lastName
+FROM employees
+WHERE jobTitle = 'Sales Rep'
+  AND reportsTo = 1102;
+
+-- Example from Q9 (Stored Procedure)
+CREATE PROCEDURE Get_country_payments(
+  IN input_year INT,
+  IN input_country VARCHAR(50)
+)
+BEGIN
+  SELECT YEAR(p.paymentDate) AS `Year`, c.country AS `Country`,
+         CONCAT(ROUND(SUM(p.amount)/1000,0), 'K') AS `Total Amount`
+  FROM payments p
+  JOIN customers c ON p.customerNumber = c.customerNumber
+  WHERE YEAR(p.paymentDate) = input_year
+    AND c.country = input_country
+  GROUP BY YEAR(p.paymentDate), c.country;
+END;
+
+-- Example from Q13 Trigger
+CREATE TRIGGER trg_BI_WorkingHours_Positive
+BEFORE INSERT ON Emp_BIT
+FOR EACH ROW
+BEGIN
+  IF NEW.Working_hours < 0 THEN
+    SET NEW.Working_hours = ABS(NEW.Working_hours);
+  END IF;
+END;
+    </pre>
+
+    <a class="btn" href="MySqlAssignment.sql" download style="margin-top:18px; display:inline-block; font-size:16px; padding:10px 18px;">
+      ⬇️ Download Full MySQL Assignment (.sql)
+    </a>
+  </div>
+</div>
 
   <!-- ADVANCED MYSQL CARD -->
   <div class="project-card" style="padding:30px; border-radius:14px;">
@@ -338,7 +411,42 @@ CREATE DATABASE CompanyDB;
 USE CompanyDB;
 
 CREATE TABLE Employees (
-    EmpID INT PRIMARY
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(100) NOT NULL,
+    EmailAddress VARCHAR(120) UNIQUE,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Transaction-safe stored procedure
+DELIMITER $$
+CREATE PROCEDURE InsertEmployee(
+    IN p_id INT,
+    IN p_name VARCHAR(100),
+    IN p_email VARCHAR(120)
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT '❌ Error: Insert failed. Transaction rolled back.' AS Message;
+    END;
+
+    START TRANSACTION;
+
+    INSERT INTO Employees(EmpID, EmpName, EmailAddress)
+    VALUES (p_id, p_name, p_email);
+
+    COMMIT;
+    SELECT '✅ Employee inserted successfully' AS Message;
+END $$
+DELIMITER ;
+    </pre>
+
+    <a class="btn" href="MySqlAssignment.sql" download style="margin-top:18px; display:inline-block; font-size:16px; padding:10px 18px;">
+      ⬇️ Download Full MySQL Script (.sql)
+    </a>
+  </div>
+</div>
 </div>
 
 <footer>
