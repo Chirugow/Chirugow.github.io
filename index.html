@@ -37,10 +37,8 @@
     .nav-right img{width:28px;transition:transform .22s}
     .nav-right img:hover{transform:scale(1.15)}
 
-    /* theme toggle */
     #themeToggle{background:none;border:0;font-size:20px;cursor:pointer;margin-right:6px}
 
-    /* header */
     header{
       background:linear-gradient(135deg,#0078ff,#00b1ff);
       padding:56px 18px;text-align:center;color:#fff;border-bottom-left-radius:18px;border-bottom-right-radius:18px;
@@ -53,14 +51,11 @@
     .skill-badge{background:#fff;color:#111;padding:8px 14px;border-radius:20px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,0.08);transition:.2s}
     .skill-badge:hover{transform:translateY(-5px)}
 
-    /* main nav */
     .main-nav{background:#222;text-align:center;padding:12px;border-radius:10px;margin:20px auto;width:92%;max-width:1100px}
     .main-nav a{color:#fff;margin:0 14px;text-decoration:none;font-weight:700}
 
-    /* sections */
     .section{padding:30px;background:var(--card);margin:20px auto;border-radius:12px;max-width:1100px;width:92%;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:.3s}
 
-    /* cards */
     .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:18px}
 
     .project-card{
@@ -84,166 +79,255 @@
 
     footer{background:#0b0b0b;color:#fff;padding:20px;text-align:center;margin-top:30px;border-radius:10px}
 
+    /* SQL Tabs */
+    .sqltab{
+      padding:8px 16px;background:#ddd;border:0;border-radius:6px;font-weight:600;cursor:pointer;transition:0.2s;
+    }
+    .dark-mode .sqltab{background:#333;color:#fff}
+    .sqltab.active{background:var(--accent);color:#fff}
+    .sqltab:hover{transform:translateY(-3px)}
+    .sqlcontent{display:none;margin-top:18px}
+
   </style>
 </head>
 <body>
 
-  <!-- TOP NAV -->
-  <div class="top-nav">
-    <div class="brand">Chiranth K J | Portfolio</div>
-    <div class="nav-right">
-      <button id="themeToggle">🌙</button>
-      <a href="https://github.com/Chirugow" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></a>
-      <a href="https://linkedin.com/in/chiranthkj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"></a>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <header>
-    <h1>Chiranth K J — Data Analyst</h1>
-    <p>Power BI • Tableau • Excel • MySQL • Visualization</p>
-
-    <div class="skill-badges">
-      <div class="skill-badge">Power BI</div>
-      <div class="skill-badge">Tableau</div>
-      <div class="skill-badge">Excel</div>
-      <div class="skill-badge">SQL / MySQL</div>
-      <div class="skill-badge">Python</div>
-      <div class="skill-badge">Analytics</div>
-    </div>
-  </header>
-
-  <!-- MAIN NAV -->
-  <nav class="main-nav">
-    <a href="#powerbi">Power BI</a>
-    <a href="#tableau">Tableau</a>
-    <a href="#excel">Excel</a>
-    <a href="#mysql">MySQL</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- POWER BI -->
-  <section class="section" id="powerbi">
-    <h2>Power BI</h2>
-
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>📊 Sales Dashboard (Power BI)</h3>
-        <p>Interactive dashboard built with DAX, KPI cards and model relationships.</p>
-
-        <iframe title="Power BI" width="100%" height="640" frameborder="0" allowFullScreen
-          src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMDM2ZDhlOTEtNmQ5Zi00YzUzLWFkODktYTEzYjViZThjMjk1IiwidCI6IjdjMjQyMjEwLTViNWUtNDIyOS04Y2ZlLTY0NTM2YzUyNTJhZiJ9">
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- TABLEAU -->
-  <section class="section" id="tableau">
-    <h2>Tableau</h2>
-
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>📈 Superstore Dashboard (Tableau)</h3>
-        <p>Highly interactive visualization exploring sales insights.</p>
-
-        <iframe src="https://public.tableau.com/views/TableauAssignmnets1/FinalDashboard?:showVizHome=no&:embed=true"
-                style="width:100%;height:720px;border:0;border-radius:10px;"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXCEL -->
-  <section class="section" id="excel">
-    <h2>Excel</h2>
-
-<div class="project-grid">
-  <div class="project-card">
-    <h3>📋 Sales Performance (Excel)</h3>
-    <p>Excel dashboard embedded from OneDrive.</p>
-
-    <div style="width:100%; overflow:hidden; position:relative; height:900px; border-radius:10px;">
-      <iframe 
-        src="https://1drv.ms/x/c/E60B13B193A9C309/IQQ1pQEMe-NmS6pu2-TpkFdPAegl0y4YH7peF-INAc7u548?Item='Dashboard2'!A1%3AW45&wdAllowInteractivity=True&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"
-        style="width:140%; height:100%; border:0; transform: scale(0.70); transform-origin: top left;"
-        allowfullscreen
-        scrolling="no"
-      ></iframe>
-    </div>
-
-    <a class="btn" href="Sales report dashboard.xlsx" download>⬇️ Download Excel Dashboard</a>
+<!-- TOP NAV -->
+<div class="top-nav">
+  <div class="brand">Chiranth K J | Portfolio</div>
+  <div class="nav-right">
+    <button id="themeToggle">🌙</button>
+    <a href="https://github.com/Chirugow" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></a>
+    <a href="https://linkedin.com/in/chiranthkj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"></a>
   </div>
 </div>
 
+<!-- HERO -->
+<header>
+  <h1>Chiranth K J — Data Analyst</h1>
+  <p>Power BI • Tableau • Excel • MySQL • Visualization</p>
 
+  <div class="skill-badges">
+    <div class="skill-badge">Power BI</div>
+    <div class="skill-badge">Tableau</div>
+    <div class="skill-badge">Excel</div>
+    <div class="skill-badge">SQL / MySQL</div>
+    <div class="skill-badge">Python</div>
+    <div class="skill-badge">Analytics</div>
+  </div>
+</header>
 
-  </section>
+<!-- INTERNAL NAV -->
+<nav class="main-nav">
+  <a href="#powerbi">Power BI</a>
+  <a href="#tableau">Tableau</a>
+  <a href="#excel">Excel</a>
+  <a href="#mysql">MySQL</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <!-- MYSQL -->
-  <section class="section" id="mysql">
-    <h2>MySQL</h2>
-
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>🗄️ Full SQL Assignment</h3>
-
-        <details>
-          <summary>▶ Show SQL Preview</summary>
-          <pre class="code">
--- Example SQL
-SELECT * FROM employees;
-          </pre>
-        </details>
-
-        <a class="btn" href="MySqlAssignment.sql" download>⬇️ Download SQL Assignment</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-
+<!-- POWER BI SECTION -->
+<section class="section" id="powerbi">
+  <h2>Power BI</h2>
+  <div class="project-grid">
     <div class="project-card">
-      <p><strong>Email:</strong> <a href="mailto:chiranthgowda50@gmail.com">chiranthgowda50@gmail.com</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chiranthkj" target="_blank">linkedin.com/in/chiranthkj</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/Chirugow" target="_blank">github.com/Chirugow</a></p>
-
-      <a class="btn" href="chiranthKJresume.docx" target="_blank">📄 View / Download Resume </a>
+      <h3>📊 Sales Dashboard (Power BI)</h3>
+      <p>Interactive dashboard built with DAX, KPI cards and model relationships.</p>
+      <iframe width="100%" height="640" frameborder="0" allowfullscreen
+        src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMDM2ZDhlOTEtNmQ5Zi00YzUzLWFkODktYTEzYjViZThjMjk1IiwidCI6IjdjMjQyMjEwLTViNWUtNDIyOS04Y2ZlLTY0NTM2YzUyNTJhZiJ9"></iframe>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- BACK TO TOP -->
-  <button id="topBtn">↑</button>
+<!-- TABLEAU SECTION -->
+<section class="section" id="tableau">
+  <h2>Tableau</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>📈 Superstore Dashboard (Tableau)</h3>
+      <p>Highly interactive visualization exploring sales insights.</p>
+      <iframe src="https://public.tableau.com/views/TableauAssignmnets1/FinalDashboard?:showVizHome=no&:embed=true"
+        style="width:100%;height:720px;border:0;border-radius:10px;"></iframe>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    © 2025 Chiru Gowda — Data Portfolio
-  </footer>
+<!-- EXCEL SECTION -->
+<section class="section" id="excel">
+  <h2>Excel</h2>
 
-  <script>
-    // theme toggle
-    document.getElementById("themeToggle").onclick = () => {
-      document.body.classList.toggle("dark-mode");
-      themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-    };
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>📋 Sales Performance (Excel)</h3>
+      <p>Excel dashboard embedded from OneDrive.</p>
 
-    // reveal animation
-    const cards = document.querySelectorAll(".project-card");
-    const revealCards = () => {
-      cards.forEach(card => {
-        if(card.getBoundingClientRect().top < window.innerHeight - 120){
-          card.classList.add("reveal");
-        }
-      });
-    };
-    window.addEventListener("scroll", revealCards);
-    revealCards();
+      <div style="width:100%; overflow:hidden; position:relative; height:900px; border-radius:10px;">
+        <iframe 
+          src="https://1drv.ms/x/c/E60B13B193A9C309/IQQ1pQEMe-NmS6pu2-TpkFdPAegl0y4YH7peF-INAc7u548?Item='Dashboard2'!A1%3AW45&wdAllowInteractivity=True&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"
+          style="width:140%; height:100%; border:0; transform: scale(0.70); transform-origin: top left;"
+          allowfullscreen
+          scrolling="no"
+        ></iframe>
+      </div>
 
-    // back to top
-    const topBtn=document.getElementById("topBtn");
-    window.addEventListener("scroll",()=>{topBtn.style.display=window.scrollY>300?"block":"none"});
-    topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
-  </script>
+      <a class="btn" href="Sales report dashboard.xlsx" download>⬇️ Download Excel Dashboard</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- MYSQL SECTION -->
+<section class="section" id="mysql">
+  <h2>MySQL</h2>
+
+  <div class="project-grid">
+    <div class="project-card">
+
+      <h3>🗄️ Complete MySQL Assignment — Professional Preview</h3>
+      <p>A complete SQL assignment demonstrating joins, views, stored procedures, triggers,
+         window functions, constraints, error handling and more.</p>
+
+      <!-- SQL TABS -->
+      <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
+        <button class="sqltab active" onclick="openSQLTab('overview')">Overview</button>
+        <button class="sqltab" onclick="openSQLTab('queries')">Queries</button>
+        <button class="sqltab" onclick="openSQLTab('procedures')">Procedures</button>
+        <button class="sqltab" onclick="openSQLTab('triggers')">Triggers</button>
+      </div>
+
+      <div id="overview" class="sqlcontent" style="display:block;">
+        <pre class="code">
+-- Topics Covered (13 Modules)
+1. SELECT, DISTINCT, LIKE, WHERE, AND/OR  
+2. CASE Statements  
+3. Aggregations + HAVING  
+4. Constraints (PK, FK, CHECK, UNIQUE)  
+5. Multi-table JOINS  
+6. SELF JOIN (Manager → Employee)  
+7. DDL (CREATE, ALTER, RENAME)  
+8. SQL VIEWS  
+9. Stored Procedures  
+10. Window Functions (RANK, DENSE_RANK)  
+11. Subqueries  
+12. Transaction Error Handling  
+13. BEFORE INSERT Trigger
+        </pre>
+      </div>
+
+      <div id="queries" class="sqlcontent">
+        <pre class="code">
+-- Example Query  
+SELECT employeeNumber, firstName, lastName  
+FROM employees  
+WHERE jobTitle = 'Sales Rep'  
+  AND reportsTo = 1102;
+
+-- JOIN Example  
+SELECT c.customerName, p.amount, p.paymentDate  
+FROM customers c  
+JOIN payments p ON c.customerNumber = p.customerNumber  
+ORDER BY p.paymentDate DESC;
+        </pre>
+      </div>
+
+      <div id="procedures" class="sqlcontent">
+        <pre class="code">
+-- Stored Procedure Example  
+CREATE PROCEDURE Get_country_payments(
+  IN input_year INT,
+  IN input_country VARCHAR(50)
+)
+BEGIN
+  SELECT YEAR(p.paymentDate) AS `Year`,
+         c.country AS `Country`,
+         CONCAT(ROUND(SUM(p.amount)/1000,0), 'K') AS `Total Amount`
+  FROM payments p
+  JOIN customers c ON p.customerNumber = c.customerNumber
+  WHERE YEAR(p.paymentDate) = input_year
+    AND c.country = input_country
+  GROUP BY YEAR(p.paymentDate), c.country;
+END;
+        </pre>
+      </div>
+
+      <div id="triggers" class="sqlcontent">
+        <pre class="code">
+-- BEFORE INSERT Trigger Example  
+CREATE TRIGGER trg_BI_WorkingHours_Positive
+BEFORE INSERT ON Emp_BIT
+FOR EACH ROW
+BEGIN
+  IF NEW.Working_hours < 0 THEN
+    SET NEW.Working_hours = ABS(NEW.Working_hours);
+  END IF;
+END;
+        </pre>
+      </div>
+
+      <a class="btn" href="MySqlAssignment.sql" download>⬇️ Download Full MySQL Assignment (.sql)</a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section" id="contact">
+  <h2>Contact</h2>
+
+  <div class="project-card">
+    <p><strong>Email:</strong> <a href="mailto:chiranthgowda50@gmail.com">chiranthgowda50@gmail.com</a></p>
+    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/chiranthkj" target="_blank">linkedin.com/in/chiranthkj</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/Chirugow" target="_blank">github.com/Chirugow</a></p>
+
+    <a class="btn" href="chiranthKJresume.docx" target="_blank">📄 View / Download Resume</a>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="topBtn">↑</button>
+
+<footer>
+  © 2025 Chiru Gowda — Data Portfolio
+</footer>
+
+<script>
+  document.getElementById("themeToggle").onclick = () => {
+    document.body.classList.toggle("dark-mode");
+    themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+  };
+
+  const cards = document.querySelectorAll(".project-card");
+  const revealCards = () => {
+    cards.forEach(card => {
+      if(card.getBoundingClientRect().top < window.innerHeight - 120){
+        card.classList.add("reveal");
+      }
+    });
+  };
+  window.addEventListener("scroll", revealCards);
+  revealCards();
+
+  const topBtn=document.getElementById("topBtn");
+  window.addEventListener("scroll",()=>{topBtn.style.display=window.scrollY>300?"block":"none"});
+  topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+  function openSQLTab(tabName){
+    var i, content, tabs;
+
+    content = document.getElementsByClassName("sqlcontent");
+    for(i=0; i<content.length; i++){
+      content[i].style.display = "none";
+    }
+
+    tabs = document.getElementsByClassName("sqltab");
+    for(i=0; i<tabs.length; i++){
+      tabs[i].classList.remove("active");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    event.target.classList.add("active");
+  }
+</script>
 
 </body>
 </html>
