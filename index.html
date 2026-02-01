@@ -108,24 +108,75 @@ body {
   color: #1a4f9c;
 }
 
-/* ================= PROJECTS GRID ================= */
-.projects-grid {
+/* ================= MODERN PROJECTS UI ================= */
+
+.projects-grid-modern {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
 }
 
-.project-card {
-  padding: 22px;
-  border-radius: 10px;
-  background: #f5f8fc;
+.project-box {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   transition: 0.2s;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+.project-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.project-img {
+  width: 100%;
+  border-radius: 12px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-box h3 {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+/* TAGS STYLE */
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.tags span {
+  background: #eef3ff;
+  color: #1a4f9c;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* DESCRIPTION */
+.project-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* READ MORE LINK */
+.readmore {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #1a4f9c;
+  text-decoration: none;
+}
+
+.readmore:hover {
+  text-decoration: underline;
 }
 
 /* ================= FOOTER ================= */
@@ -147,7 +198,7 @@ footer {
   <nav>
     <a href="#">Home</a>
     <a href="#about">About</a>
-    <a href="#projects">Portfolio</a>
+    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -183,7 +234,6 @@ footer {
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<!-- ================= PROJECTS ================= -->
 <section id="projects" class="section">
   <h2>Projects</h2>
 
@@ -192,7 +242,6 @@ footer {
     <!-- PROJECT 1 -->
     <div class="project-box">
       <img src="covid.jpg" class="project-img">
-
       <h3>Covid-19 Global Vaccination Tracker</h3>
 
       <div class="tags">
@@ -202,8 +251,7 @@ footer {
       </div>
 
       <p>
-        Tableau dashboards showing key metrics and insights about global vaccination performance.
-        Updated daily using government datasets.
+        Tableau dashboard showing global vaccination trends and government dataset analysis.
       </p>
 
       <a href="#" class="readmore">Read more →</a>
@@ -212,8 +260,7 @@ footer {
     <!-- PROJECT 2 -->
     <div class="project-box">
       <img src="airbnb.jpg" class="project-img">
-
-      <h3>AirBnB Listings Price Prediction</h3>
+      <h3>Airbnb Listings Price Prediction</h3>
 
       <div class="tags">
         <span>Python</span>
@@ -222,8 +269,7 @@ footer {
       </div>
 
       <p>
-        Predicted Airbnb prices using seasonality, home features, and economic factors.
-        Built regression models and evaluated accuracy.
+        Predicted Airbnb prices using regression models and property features analysis.
       </p>
 
       <a href="#" class="readmore">Read more →</a>
@@ -232,7 +278,6 @@ footer {
     <!-- PROJECT 3 -->
     <div class="project-box">
       <img src="spotify.jpg" class="project-img">
-
       <h3>Spotify Visual Art Dashboard</h3>
 
       <div class="tags">
@@ -242,7 +287,7 @@ footer {
       </div>
 
       <p>
-        Created music visualization animations based on track audio features.
+        Music visualization system based on audio features and animation techniques.
       </p>
 
       <a href="#" class="readmore">Read more →</a>
@@ -251,7 +296,6 @@ footer {
     <!-- PROJECT 4 -->
     <div class="project-box">
       <img src="stocks.jpg" class="project-img">
-
       <h3>Stock Price Forecasting</h3>
 
       <div class="tags">
@@ -261,7 +305,7 @@ footer {
       </div>
 
       <p>
-        Built forecasting model using exponential smoothing for stock market trends.
+        Built exponential smoothing model to predict stock market trends.
       </p>
 
       <a href="#" class="readmore">Read more →</a>
@@ -269,7 +313,6 @@ footer {
 
   </div>
 </section>
-
 
 <!-- ================= CONTACT ================= -->
 <section id="contact" class="section">
