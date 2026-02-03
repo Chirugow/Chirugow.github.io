@@ -23,6 +23,9 @@ body {
   padding: 18px 80px;
   background: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar h2 {
@@ -108,8 +111,7 @@ body {
   color: #1a4f9c;
 }
 
-/* ================= MODERN PROJECTS UI ================= */
-
+/* ================= PROJECTS ================= */
 .projects-grid-modern {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -179,6 +181,54 @@ body {
   text-decoration: underline;
 }
 
+/* ================= SKILLS ================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill-box {
+  background: #f5f8fc;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.skill-box h3 {
+  color: #1a4f9c;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* ================= EXPERIENCE ================= */
+.experience-box {
+  background: #f5f8fc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.experience-box h3 {
+  color: #1a4f9c;
+}
+
+.experience-box span {
+  font-size: 13px;
+  color: gray;
+}
+
+/* ================= CERTIFICATIONS ================= */
+.cert-item {
+  background: #f5f8fc;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
 /* ================= FOOTER ================= */
 footer {
   text-align: center;
@@ -198,20 +248,23 @@ footer {
   <nav>
     <a href="#">Home</a>
     <a href="#about">About</a>
+    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Certifications</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- ================= HERO SECTION ================= -->
+<!-- ================= HERO ================= -->
 <section class="hero">
 
   <div class="hero-text">
     <h1>Chiranth K J</h1>
     <h3>DATA ANALYST</h3>
     <p>
-      I am a data analyst skilled in Power BI, Tableau, SQL, Excel, and Python.
-      Explore my portfolio projects and download my resume below.
+      Entry-level Data Analyst skilled in SQL, Python, Power BI, Tableau, and Excel. 
+      Passionate about transforming raw data into meaningful business insights.
     </p>
 
     <a href="Chiranth Resume .docx" class="btn">Download Resume</a>
@@ -226,10 +279,39 @@ footer {
 <!-- ================= ABOUT ================= -->
 <section id="about" class="section">
   <h2>About Me</h2>
- <p>
-Entry-level Data Analyst with hands-on experience in Python, SQL, Power BI, Tableau, and Excel, focused on transforming raw data into meaningful business insights. Experienced in data cleaning, exploratory analysis, KPI tracking, and dashboard development to support data-driven decision-making. Passionate about analytics, business intelligence, and continuous learning, and seeking opportunities to contribute to real-world data projects and business growth.
-</p>
+  <p>
+Entry-level Data Analyst with hands-on experience in data validation, MIS reporting, KPI tracking, and dashboard development. 
+Proficient in Excel, SQL, Power BI, Tableau, and Python. Seeking opportunities to contribute to data-driven business decisions.
+  </p>
+</section>
 
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="section">
+  <h2>Skills</h2>
+
+  <div class="skills-grid">
+
+    <div class="skill-box">
+      <h3>Analytics & Reporting</h3>
+      <p>Data Cleaning, MIS Reporting, KPI Tracking, Trend Analysis, Root Cause Analysis</p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Data Management & Research</h3>
+      <p>Data Profiling, Data Quality Checks, Data Standardization, Documentation</p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Tools & Technologies</h3>
+      <p>Excel, SQL, Power BI, Tableau, MySQL, Python (Pandas, NumPy)</p>
+    </div>
+
+    <div class="skill-box">
+      <h3>Professional Skills</h3>
+      <p>Analytical Thinking, Attention to Detail, Communication, Problem Solving</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- ================= PROJECTS ================= -->
@@ -238,91 +320,86 @@ Entry-level Data Analyst with hands-on experience in Python, SQL, Power BI, Tabl
 
   <div class="projects-grid-modern">
 
-    <!-- PROJECT 1 -->
-<div class="project-box">
-  <img src="sales.png" class="project-img">
-  <h3>Sales Performance & Revenue Optimization Analysis</h3>
-
-  <div class="tags">
-    <span>Python</span>
-    <span>SQL</span>
-    <span>Power BI</span>
-    <span>Tableau</span>
-    <span>Excel</span>
-  </div>
-
- <p>
-• Analyzed 30,000+ sales records for revenue and product performance insights<br>
-• SQL and Python-based EDA and trend analysis<br>
-• Built Power BI & Tableau dashboards to track KPIs and regional performance<br>
-• Identified opportunities for 10–15% revenue optimization
-</p>
-
-
-  <a href="https://github.com/Chirugow/Sales-Performance-Analysis" target="_blank" class="readmore">View on GitHub →</a>
-</div>
-
-
-    <!-- PROJECT 2 -->
-<div class="project-box">
-  <img src="crowdfunding.png" class="project-img">
-  <h3>Crowdfunding Analytics & Campaign Performance</h3>
-
-  <div class="tags">
-    <span>Power BI</span>
-    <span>Tableau</span>
-    <span>SQL</span>
-    <span>Excel</span>
-  </div>
-
-  <p>
-• Analyzed 100K+ crowdfunding records to identify funding trends and success rates<br>
-• SQL-based KPI extraction (success ratio, avg pledged amount, duration impact)<br>
-• Built interactive dashboards for campaign outcomes and backer behavior<br>
-• Identified success factors improving campaign success probability by 8–12%
-</p>
-
-
-  <a href="https://github.com/Chirugow/crowdfunding-analytics" target="_blank" class="readmore">View on GitHub →</a>
-</div>
-
-    <!-- PROJECT 3 -->
     <div class="project-box">
-      <img src="spotify.jpg" class="project-img">
-      <h3>Spotify Visual Art Dashboard</h3>
+      <img src="sales.png" class="project-img">
+      <h3>Sales Performance & Revenue Optimization</h3>
 
       <div class="tags">
-        <span>Python</span>
-        <span>JavaScript</span>
-        <span>SQL</span>
+        <span>Python</span><span>SQL</span><span>Power BI</span><span>Tableau</span><span>Excel</span>
       </div>
 
       <p>
-        Music visualization system based on audio features and animation techniques.
+• Analyzed 30,000+ sales records<br>
+• Built dashboards for KPI tracking<br>
+• Identified revenue improvement opportunities (10–15%)
       </p>
 
-      <a href="#" class="readmore">Read more →</a>
+      <a href="https://github.com/Chirugow/Sales-Performance-Analysis" target="_blank" class="readmore">View on GitHub →</a>
     </div>
 
-    <!-- PROJECT 4 -->
     <div class="project-box">
-      <img src="stocks.jpg" class="project-img">
-      <h3>Stock Price Forecasting</h3>
+      <img src="crowdfunding.png" class="project-img">
+      <h3>Crowdfunding Analytics</h3>
 
       <div class="tags">
-        <span>Python</span>
-        <span>R</span>
-        <span>API</span>
+        <span>Power BI</span><span>Tableau</span><span>SQL</span><span>Excel</span>
       </div>
 
       <p>
-        Built exponential smoothing model to predict stock market trends.
+• Analyzed 100K+ campaign records<br>
+• Built dashboards for success factors<br>
+• Identified factors improving success rate by 8–12%
       </p>
 
-      <a href="#" class="readmore">Read more →</a>
+      <a href="https://github.com/Chirugow/crowdfunding-analytics" target="_blank" class="readmore">View on GitHub →</a>
     </div>
 
   </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" class="section">
+  <h2>Experience & Internship</h2>
+
+  <div class="experience-box">
+    <h3>Business Analyst Intern | Ai Variant</h3>
+    <span>Oct 2025 – Jan 2026</span>
+    <p>
+• Cleaned and validated 6,000+ records<br>
+• Conducted research across 15+ sources<br>
+• Prepared MIS reports and dashboards<br>
+• Tracked 10+ business KPIs
+    </p>
+  </div>
+
+  <div class="experience-box">
+    <h3>Web Development Intern | SRISADGURU Hypertechnologies</h3>
+    <span>Mar 2025 – May 2025</span>
+    <p>
+• Validated 4,000+ backend records<br>
+• Built Excel KPI trackers<br>
+• Documented data workflows and SOPs
+    </p>
+  </div>
+
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications" class="section">
+  <h2>Certifications</h2>
+
+  <div class="cert-item">
+    <b>Business Analyst & Data Analytics Certification — ExcelR (2025)</b>
+  </div>
+
+  <div class="cert-item">
+    <b>Data Analysis Using Python — IBM (2026)</b>
+  </div>
+
+  <div class="cert-item">
+    <b>Microsoft Learn Achievements — Power BI & Data Analytics (2026)</b>
+  </div>
+
 </section>
 
 <!-- ================= CONTACT ================= -->
