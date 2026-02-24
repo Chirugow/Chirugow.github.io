@@ -50,7 +50,7 @@ body {
   background: linear-gradient(to right, #f5f8fc, #eaf1ff);
 }
 
-.hero-text h1 { font-size: 52px; color: #1a4f9c; }
+.hero-text h1 { font-size: 50px; color: #1a4f9c; }
 
 .hero-text h3 { color: gray; letter-spacing: 2px; }
 
@@ -78,11 +78,11 @@ body {
 
 /* ================= IMAGE ================= */
 .hero-img img {
-  width: 260px;
-  height: 260px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  border: 12px solid #1a4f9c;
+  border: 10px solid #1a4f9c;
 }
 
 /* ================= SECTIONS ================= */
@@ -96,7 +96,7 @@ body {
 
 .section h2 { color: #1a4f9c; }
 
-/* ================= GRID STYLES ================= */
+/* ================= GRID ================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -128,6 +128,20 @@ body {
 
 .card a:hover { text-decoration: underline; }
 
+/* ================= CONTACT ================= */
+.contact-links a {
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #1a4f9c;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
 /* ================= FOOTER ================= */
 footer {
   text-align: center;
@@ -146,19 +160,21 @@ footer {
   <nav>
     <a href="#">Home</a>
     <a href="#about">About</a>
+    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#certifications">Certifications</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <h1>Chiranth K J</h1>
     <h3>DATA ANALYST</h3>
     <p>
-Data Analyst specializing in SQL, Python, Power BI, and Tableau.
-Experienced in analyzing 100K+ to 100M+ scale datasets and delivering business insights.
+Data Analyst skilled in SQL, Python, Power BI, and Tableau.
+Experienced in analyzing datasets from 100K+ to 100M+ scale and delivering data-driven insights for business decision-making.
     </p>
     <a href="Chiranth_Resume.docx" class="btn">Download Resume</a>
   </div>
@@ -168,19 +184,47 @@ Experienced in analyzing 100K+ to 100M+ scale datasets and delivering business i
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section">
   <h2>ABOUT</h2>
   <p>
-BCA Graduate (CGPA 8.14/10) with strong foundation in Data Analytics,
-EDA, dashboard development, and KPI tracking.
-Skilled in SQL, Power BI (DAX, RLS), Tableau, Python (Pandas), and Excel.
+BCA Graduate (CGPA 8.14/10) with strong foundation in data analysis, dashboard development, KPI tracking, and business intelligence.
+Proficient in SQL (Joins, CTEs, Window Functions), Power BI (DAX, RLS), Tableau, Python (Pandas, NumPy), and Excel (Pivot Tables, Power Query).
   </p>
 </section>
 
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <h2>SKILLS</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Data Analysis</h3>
+      <p>Data Cleaning, EDA, KPI Tracking, Trend & Variance Analysis, MIS Reporting</p>
+    </div>
+
+    <div class="card">
+      <h3>BI & Visualization</h3>
+      <p>Power BI (DAX, RLS, Data Modelling), Tableau, Dashboard Development</p>
+    </div>
+
+    <div class="card">
+      <h3>Technical Skills</h3>
+      <p>SQL (Joins, CTEs, Window Functions), Python (Pandas, NumPy)</p>
+    </div>
+
+    <div class="card">
+      <h3>Tools</h3>
+      <p>Excel (Pivot Tables, XLOOKUP, Power Query), MySQL</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects" class="section">
   <h2>PROJECTS</h2>
-  <div class="grid">
 
+  <div class="grid">
     <div class="card">
       <h3>Sales Performance Analysis</h3>
       <span>Excel | Power BI | Tableau</span>
@@ -200,49 +244,46 @@ Skilled in SQL, Power BI (DAX, RLS), Tableau, Python (Pandas), and Excel.
       <span>Power BI | SQL | Excel</span>
       <p>Analyzed 135K+ booking records and ₹2B revenue dataset to evaluate occupancy and pricing performance.</p>
     </div>
-
   </div>
 </section>
 
-<!-- ================= CERTIFICATIONS ================= -->
+<!-- CERTIFICATIONS -->
 <section id="certifications" class="section">
   <h2>CERTIFICATIONS</h2>
 
   <div class="grid">
-
     <div class="card">
       <h3>Data Analysis Using Python</h3>
-      <span>IBM   | Jan 2026</span>
-      <a href="https://github.com/Chirugow/Certificate" target="_blank">View Certificate →</a>
+      <span>IBM | Jan 2026</span>
     </div>
 
     <div class="card">
       <h3>Data Analytics Essentials</h3>
       <span>Cisco Networking Academy | Feb 2026</span>
-      <a href="https://github.com/Chirugow/Certificate" target="_blank">View Certificate →</a>
     </div>
 
     <div class="card">
       <h3>Business Analyst & Data Analytics</h3>
       <span>ExcelR | Nov 2025</span>
-      <a href="https://github.com/Chirugow/Certificate" target="_blank">View Certificate →</a>
     </div>
 
     <div class="card">
       <h3>Introduction to Data Analytics</h3>
       <span>Simplilearn SkillUp | Feb 2026</span>
-      <a href="https://github.com/Chirugow/Certificate" target="_blank">View Certificate →</a>
     </div>
-
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="section">
   <h2>LET'S CONNECT</h2>
-  <p>Email: chiranthgowda50@gmail.com</p>
-  <p>Phone: +91 8217589796</p>
-  <p>LinkedIn: linkedin.com/in/chiranthkj</p>
-  <p>GitHub: github.com/Chirugow</p>
+  <p>I am actively seeking Data Analyst opportunities.</p>
+
+  <div class="contact-links">
+    <a href="mailto:chiranthgowda50@gmail.com">📧 Gmail</a>
+    <a href="https://linkedin.com/in/chiranthkj" target="_blank">🔗 LinkedIn</a>
+    <a href="https://github.com/Chirugow" target="_blank">💻 GitHub</a>
+  </div>
 </section>
 
 <footer>
