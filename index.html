@@ -8,6 +8,10 @@
 <style>
 
 /* ================= BASE ================= */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -44,12 +48,13 @@ body {
   color: #1a4f9c;
 }
 
-/* ================= HERO SECTION ================= */
+/* ================= HERO ================= */
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 90px 80px;
+  background: linear-gradient(to right, #f5f8fc, #eaf1ff);
 }
 
 .hero-text h1 {
@@ -65,12 +70,12 @@ body {
 }
 
 .hero-text p {
-  width: 420px;
+  width: 480px;
   line-height: 1.7;
   font-size: 16px;
 }
 
-/* Resume Button */
+/* Button */
 .btn {
   background: #1a4f9c;
   color: white;
@@ -80,7 +85,7 @@ body {
   font-weight: bold;
   display: inline-block;
   margin-top: 18px;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .btn:hover {
@@ -111,6 +116,12 @@ body {
   color: #1a4f9c;
 }
 
+/* ================= KEY HIGHLIGHTS ================= */
+.section ul {
+  line-height: 1.8;
+  padding-left: 20px;
+}
+
 /* ================= PROJECTS ================= */
 .projects-grid-modern {
   display: grid;
@@ -124,7 +135,7 @@ body {
   border-radius: 14px;
   padding: 18px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .project-box:hover {
@@ -144,7 +155,6 @@ body {
   font-size: 18px;
 }
 
-/* TAGS STYLE */
 .tags {
   display: flex;
   gap: 8px;
@@ -161,14 +171,12 @@ body {
   font-weight: bold;
 }
 
-/* DESCRIPTION */
 .project-box p {
   font-size: 14px;
   line-height: 1.6;
   color: #444;
 }
 
-/* READ MORE LINK */
 .readmore {
   display: inline-block;
   margin-top: 10px;
@@ -194,6 +202,11 @@ body {
   padding: 18px;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.skill-box:hover {
+  transform: translateY(-6px);
 }
 
 .skill-box h3 {
@@ -220,13 +233,9 @@ body {
   color: gray;
 }
 
-/* ================= CERTIFICATIONS ================= */
-.cert-item {
-  background: #f5f8fc;
-  padding: 12px 15px;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+/* ================= CONTACT ================= */
+#contact p {
+  line-height: 1.8;
 }
 
 /* ================= FOOTER ================= */
@@ -242,83 +251,85 @@ footer {
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
 <header class="navbar">
   <h2>Chiranth K J</h2>
   <nav>
     <a href="#">Home</a>
     <a href="#about">About</a>
+    <a href="#highlights">Highlights</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
-    <a href="#certifications">Certifications</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- ================= HERO ================= -->
 <section class="hero">
-
   <div class="hero-text">
     <h1>Chiranth K J</h1>
     <h3>DATA ANALYST</h3>
     <p>
-      Entry-level Data Analyst skilled in SQL, Python, Power BI, Tableau, and Excel. 
-      Passionate about transforming raw data into meaningful business insights.
+Data Analyst specializing in SQL, Python, Power BI, and Tableau. 
+Experienced in analyzing datasets from 100K+ to 100M+ scale, building KPI dashboards, 
+and delivering insights that improved campaign success probability by 8–12%.
+Passionate about transforming raw data into strategic decision intelligence.
     </p>
-
     <a href="Chiranth_Resume.docx" class="btn">Download Resume</a>
   </div>
 
   <div class="hero-img">
     <img src="ChiranthPic.png" alt="Chiranth Photo">
   </div>
-
 </section>
 
-<!-- ================= ABOUT ================= -->
 <section id="about" class="section">
   <h2>ABOUT</h2>
   <p>
-Entry-level Data Analyst with strong foundation in data analysis, business intelligence, and reporting. 
-Skilled in SQL, Python, Excel, Power BI, and Tableau to analyze datasets, build dashboards, and deliver actionable insights. 
-Holds a BCA in Data Analytics with certifications in Business Analytics (ExcelR), Python Data Analysis (IBM), and Microsoft Power BI. 
-Interested in data-driven roles focused on analytics, business intelligence, and decision support. 
-Known for strong analytical thinking, communication, problem-solving, and attention to detail.
+Data Analyst with hands-on experience in business intelligence, EDA, KPI tracking, and dashboard development.
+Skilled in SQL (Joins, CTEs, Window Functions), Power BI (DAX, Data Modelling, RLS), Tableau,
+Python (Pandas, NumPy), and Excel (Power Query, XLOOKUP).
+Bachelor of Computer Applications (CGPA: 8.14/10).
   </p>
 </section>
 
+<section id="highlights" class="section">
+  <h2>KEY HIGHLIGHTS</h2>
+  <ul>
+    <li>Analyzed datasets ranging from 100K+ to 100M+ records</li>
+    <li>Improved campaign success probability by 8–12%</li>
+    <li>Built Power BI dashboards with DAX & data modelling</li>
+    <li>Performed country-level and segment-level profitability analysis</li>
+    <li>Strong expertise in KPI tracking & MIS reporting</li>
+  </ul>
+</section>
 
-<!-- ================= SKILLS ================= -->
 <section id="skills" class="section">
   <h2>SKILLS</h2>
-
   <div class="skills-grid">
 
     <div class="skill-box">
-      <h3>Analytics & Reporting</h3>
-      <p>Data Cleaning, MIS Reporting, KPI Tracking, Trend Analysis, Root Cause Analysis</p>
+      <h3>Data Analysis</h3>
+      <p>Data Cleaning, Validation, EDA, KPI Tracking, Trend & Variance Analysis</p>
     </div>
 
     <div class="skill-box">
-      <h3>Data Management & Research</h3>
-      <p>Data Profiling, Data Quality Checks, Data Standardization, Documentation</p>
+      <h3>BI & Visualization</h3>
+      <p>Power BI (DAX, RLS), Tableau, Dashboard Development</p>
     </div>
 
     <div class="skill-box">
-      <h3>Tools & Technologies</h3>
-      <p>Excel, SQL, Power BI, Tableau, MySQL, Python (Pandas, NumPy)</p>
+      <h3>Technical Skills</h3>
+      <p>SQL (Joins, CTEs, Window Functions), Python (Pandas, NumPy)</p>
     </div>
 
     <div class="skill-box">
-      <h3>Professional Skills</h3>
-      <p>Analytical Thinking, Attention to Detail, Communication, Problem Solving</p>
+      <h3>Tools</h3>
+      <p>Excel (Pivot Tables, XLOOKUP, Power Query), MySQL</p>
     </div>
 
   </div>
 </section>
 
-<!-- ================= PROJECTS ================= -->
 <section id="projects" class="section">
   <h2>PROJECTS</h2>
 
@@ -326,41 +337,42 @@ Known for strong analytical thinking, communication, problem-solving, and attent
 
     <div class="project-box">
       <img src="sales.png" class="project-img">
-      <h3>Sales Performance & Revenue Optimization</h3>
-
+      <h3>Sales Performance & Profitability Analysis</h3>
       <div class="tags">
-        <span>Excel</span><span>PowerBI</span><span>Tableau</span>
+        <span>Excel</span><span>Power BI</span><span>Tableau</span>
       </div>
-
       <p>
-• Analyzed a 100M+ sales dataset to evaluate revenue, profit, and COGS across business segments.<br>
-• Built interactive Power BI & Tableau dashboards to track key KPIs and performance trends.<br>
-• Identified seasonal trends, high-revenue segments, and top profit-contributing regions to support data-driven strategy.      </p>
-
+Analyzed 100M+ enterprise sales data. Built dashboards tracking Sales (118M+), Profit (16M+), and COGS trends. Identified top-performing segments and profitability drivers.
+      </p>
       <a href="https://github.com/Chirugow/Sales-Performance-Analysis" target="_blank" class="readmore">View on GitHub →</a>
     </div>
 
     <div class="project-box">
       <img src="crowdfunding.png" class="project-img">
-      <h3>Crowdfunding Analytics</h3>
-
+      <h3>Crowdfunding Campaign Analytics</h3>
       <div class="tags">
         <span>Power BI</span><span>SQL</span><span>Excel</span>
       </div>
-
       <p>
-• Analyzed 100K+ crowdfunding projects to evaluate campaign performance, funding outcomes, and backer behavior.<br>
-• Built an interactive Power BI dashboard to track key KPIs and visualize campaign trends.<br>
-• Identified key success factors and performance patterns to support data-driven campaign strategy.
+Analyzed 100K+ Kickstarter projects. Identified funding success drivers and improved campaign success probability by 8–12%.
       </p>
-
       <a href="https://github.com/Chirugow/crowdfunding-analytics" target="_blank" class="readmore">View on GitHub →</a>
+    </div>
+
+    <div class="project-box">
+      <img src="hospitality.png" class="project-img">
+      <h3>Hospitality Revenue Analytics</h3>
+      <div class="tags">
+        <span>Power BI</span><span>SQL</span><span>Excel</span>
+      </div>
+      <p>
+Analyzed 135K+ booking records & ₹2B revenue data. Built occupancy & profitability dashboard supporting pricing optimization.
+      </p>
     </div>
 
   </div>
 </section>
 
-<!-- ================= EXPERIENCE ================= -->
 <section id="experience" class="section">
   <h2>EXPERIENCE</h2>
 
@@ -368,56 +380,29 @@ Known for strong analytical thinking, communication, problem-solving, and attent
     <h3>Business Analyst Intern | Ai Variant</h3>
     <span>Oct 2025 – Jan 2026</span>
     <p>
-• Analyzed large-scale business datasets to identify revenue drivers, profitability gaps, and performance trends.<br>
-• Developed interactive Power BI dashboards to track sales, profit, COGS, and campaign performance KPIs.<br>
-• Delivered actionable insights to support sales optimization, pricing strategy, and business decision-making.
+Built KPI dashboards tracking revenue and profitability metrics. Conducted segment & regional analysis to support pricing and campaign strategy decisions.
     </p>
-     <p><b>Skills & Tools:</b> Excel, SQL, Power BI, Data Cleaning, MIS Reporting, KPI Tracking, Data Validation, Business Analysis</p>
   </div>
 
   <div class="experience-box">
     <h3>Web Development Intern | SRISADGURU Hypertechnologies</h3>
     <span>Mar 2025 – May 2025</span>
     <p>
-• Extracted, cleaned, and analyzed backend application data using Python and Excel to support reporting needs.<BR>
-• Validated and reconciled 4,000+ records, ensuring data accuracy and quality.<br>
-• Supported KPI tracking, dashboard preparation, and MIS reporting in collaboration with cross-functional teams.
+Extracted and validated backend data (4,000+ records). Supported dashboard reporting and data quality checks.
     </p>
   </div>
 
 </section>
 
-<!-- ================= CERTIFICATIONS ================= -->
-<section id="certifications" class="section">
-  <h2>CERTIFICATION</h2>
-
-  <div class="cert-item">
-    <b>Data Analysis Using Python — IBM (Jan 2026)</b>
-  </div>
- 
-  <div class="cert-item">
-    <b>Data Analytics Essentials — Cisco Networking Academy (Feb 2026)</b>
-  </div>
-
-  <div class="cert-item">
-    <b>Business Analyst & Data Analytics Certification — ExcelR (Nov 2025)</b>
-  </div>
-  
-  <div class="cert-item">
-    <b>Introduction to Data Analytics — SkillUp / Simplilearn (Feb 2026)</b>
-  </div>
-  <a href="https://github.com/Chirugow/Certificate.git" target="_blank" class="readmore">View on GitHub →</a>
-</section>
-
-<!-- ================= CONTACT ================= -->
 <section id="contact" class="section">
-  <h2>CONTACT</h2>
-  <p>Email: chiranthgowda50@gmail.com</p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/chiranthkj" target="_blank">linkedin.com/in/chiranthkj</a></p>
-  <p>GitHub: <a href="https://github.com/Chirugow" target="_blank">github.com/Chirugow</a></p>
+  <h2>LET'S CONNECT</h2>
+  <p>I am actively seeking Data Analyst / Business Intelligence opportunities.</p>
+  <p><b>Email:</b> chiranthgowda50@gmail.com</p>
+  <p><b>Phone:</b> +91 8217589796</p>
+  <p><b>LinkedIn:</b> linkedin.com/in/chiranthkj</p>
+  <p><b>GitHub:</b> github.com/Chirugow</p>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer>
   © 2026 Chiranth K J — Data Analyst Portfolio
 </footer>
